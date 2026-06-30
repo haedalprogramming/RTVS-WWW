@@ -17,15 +17,19 @@
       <img src="img/Icon.png" alt="Code Builder" />
       <span>Code Builder</span>
     </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active" data-i18n="nav-home">홈</a></li>
+      <li><a href="about.html" data-i18n="nav-about">About</a></li>
+      <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+      <li><a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-nav" data-i18n="nav-play">지금 플레이하기</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">KO</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
     <button class="nav-toggle" aria-label="메뉴 열기" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="active">홈</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-nav">지금 플레이하기</a></li>
-    </ul>
   </div>
 </nav>
 
@@ -38,63 +42,63 @@
   <div class="hero-content">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      로블록스 인게임 코딩 교육
+      <span data-i18n="hero-badge">로블록스 인게임 코딩 교육</span>
     </div>
-    <h1 class="hero-title">
+    <h1 class="hero-title" data-i18n="hero-title">
       내가 만든 코드가<br />
       <span class="highlight">즉시 게임 속에</span> 반영된다
     </h1>
-    <p class="hero-sub">
+    <p class="hero-sub" data-i18n="hero-sub">
       Code Builder는 로블록스 게임 플레이 도중 블록 코딩 창을 열어<br class="br-desktop" />
       에이전트에게 명령을 내리는 인게임 코딩 교육 플랫폼입니다.
     </p>
     <div class="hero-actions">
-      <a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-primary">
+      <a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-primary" data-i18n="hero-play">
         ▶ 지금 플레이하기
       </a>
-      <a href="#how-it-works" class="btn-ghost">작동 방식 보기 ↓</a>
+      <a href="#how-it-works" class="btn-ghost" data-i18n="hero-how">작동 방식 보기 ↓</a>
     </div>
   </div>
-  <div class="hero-scroll-hint">스크롤</div>
+  <div class="hero-scroll-hint" data-i18n="hero-scroll">스크롤</div>
 </section>
 
 <!-- ───────── FEATURES ───────── -->
 <section class="section" id="features">
   <div class="container">
-    <div class="section-label">왜 Code Builder인가</div>
-    <h2 class="section-title">코딩 교육의<br />새로운 무대</h2>
+    <div class="section-label" data-i18n="features-label">왜 Code Builder인가</div>
+    <h2 class="section-title" data-i18n="features-title">코딩 교육의<br />새로운 무대</h2>
     <div class="features-grid">
 
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
-        <h3>PC · 모바일 지원</h3>
-        <p>C키(PC) 또는 <code>&lt;&gt;</code> 버튼(모바일)으로 코드 빌더 창을 열고 닫음</p>
+        <h3 data-i18n="feat1-title">PC · 모바일 지원</h3>
+        <p data-i18n="feat1-desc">C키(PC) 또는 <code>&lt;&gt;</code> 버튼(모바일)으로 코드 빌더 창을 열고 닫음</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
-        <h3>즉시 반영</h3>
-        <p>블록을 조립하고 실행을 누르면 에이전트가 게임 속에서 즉시 반응</p>
+        <h3 data-i18n="feat2-title">즉시 반영</h3>
+        <p data-i18n="feat2-desc">블록을 조립하고 실행을 누르면 에이전트가 게임 속에서 즉시 반응</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M8.5 8.5l1.5 1.5"/></svg>
         </div>
-        <h3>예측 불가 에이전트</h3>
-        <p>에이전트가 항상 완벽하게 명령을 따르지 않음 — 그것도 게임의 재미이자 도전</p>
+        <h3 data-i18n="feat3-title">예측 불가 에이전트</h3>
+        <p data-i18n="feat3-desc">에이전트가 항상 완벽하게 명령을 따르지 않음 — 그것도 게임의 재미이자 도전</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         </div>
-        <h3>12단계 커리큘럼</h3>
-        <p>움직임 · 루프 · 조건문 · 함수를 다루는 12개의 점진적인 수업</p>
+        <h3 data-i18n="feat4-title">12단계 커리큘럼</h3>
+        <p data-i18n="feat4-desc">움직임 · 루프 · 조건문 · 함수를 다루는 12개의 점진적인 수업</p>
       </div>
 
     </div>
@@ -104,8 +108,8 @@
 <!-- ───────── HOW IT WORKS ───────── -->
 <section class="section section-dark" id="how-it-works">
   <div class="container">
-    <div class="section-label">작동 방식</div>
-    <h2 class="section-title">세 단계, 바로 시작</h2>
+    <div class="section-label" data-i18n="hiw-label">작동 방식</div>
+    <h2 class="section-title" data-i18n="hiw-title">세 단계, 바로 시작</h2>
     <div class="steps-row">
 
       <div class="step">
@@ -114,8 +118,8 @@
           <img src="img/Preview_1.png" alt="코드 빌더 창 열기" />
         </div>
         <div class="step-body">
-          <h3>코드 빌더 창 열기</h3>
-          <p>게임 도중 <kbd>C</kbd>키(PC) 또는 <strong>&lt;&gt;</strong> 버튼(모바일)을 누르면 화면 우측에 블록 코딩 패널이 나타납니다.</p>
+          <h3 data-i18n="step1-title">코드 빌더 창 열기</h3>
+          <p data-i18n="step1-desc">게임 도중 <kbd>C</kbd>키(PC) 또는 <strong>&lt;&gt;</strong> 버튼(모바일)을 누르면 화면 우측에 블록 코딩 패널이 나타납니다.</p>
         </div>
       </div>
 
@@ -127,8 +131,8 @@
           <img src="img/Preview_2.png" alt="블록 조립" />
         </div>
         <div class="step-body">
-          <h3>블록 조립</h3>
-          <p>이동 · 반복 · 조건 · 함수 블록을 드래그해 명령을 만들어보세요. 코딩 경험이 없어도 됩니다.</p>
+          <h3 data-i18n="step2-title">블록 조립</h3>
+          <p data-i18n="step2-desc">이동 · 반복 · 조건 · 함수 블록을 드래그해 명령을 만들어보세요. 코딩 경험이 없어도 됩니다.</p>
         </div>
       </div>
 
@@ -140,8 +144,8 @@
           <img src="img/Preview_3.png" alt="에이전트 실행" />
         </div>
         <div class="step-body">
-          <h3>실행 — 게임 속에서 확인</h3>
-          <p>▶ 실행 버튼을 누르면 에이전트가 즉시 움직입니다. 결과를 보고 코드를 수정하며 배워나갑니다.</p>
+          <h3 data-i18n="step3-title">실행 — 게임 속에서 확인</h3>
+          <p data-i18n="step3-desc">▶ 실행 버튼을 누르면 에이전트가 즉시 움직입니다. 결과를 보고 코드를 수정하며 배워나갑니다.</p>
         </div>
       </div>
 
@@ -156,21 +160,21 @@
     <div class="world-overlay"></div>
   </div>
   <div class="world-content container">
-    <div class="section-label">게임 세계관</div>
-    <h2 class="section-title">코드가 세상을 움직인다</h2>
-    <p>코드 빌리지에서 다른 플레이어들과 함께 임무를 수행하고, 랭킹 보드에 이름을 올리세요.</p>
-    <a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-primary">플레이하기</a>
+    <div class="section-label" data-i18n="world-label">게임 세계관</div>
+    <h2 class="section-title" data-i18n="world-title">코드가 세상을 움직인다</h2>
+    <p data-i18n="world-desc">코드 빌리지에서 다른 플레이어들과 함께 임무를 수행하고, 랭킹 보드에 이름을 올리세요.</p>
+    <a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-primary" data-i18n="world-play">플레이하기</a>
   </div>
 </section>
 
 <!-- ───────── BOTTOM CTA ───────── -->
 <section class="section cta-section">
   <div class="container cta-inner">
-    <h2>지금 바로 시작하세요</h2>
-    <p>로블록스 계정만 있으면 무료로 플레이할 수 있습니다.</p>
+    <h2 data-i18n="cta-title">지금 바로 시작하세요</h2>
+    <p data-i18n="cta-desc">로블록스 계정만 있으면 무료로 플레이할 수 있습니다.</p>
     <div class="cta-actions">
-      <a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-primary">▶ 지금 플레이하기</a>
-      <a href="contact.html" class="btn-ghost">문의하기</a>
+      <a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-primary" data-i18n="cta-play">▶ 지금 플레이하기</a>
+      <a href="contact.html" class="btn-ghost" data-i18n="cta-contact">문의하기</a>
     </div>
   </div>
 </section>
@@ -183,10 +187,10 @@
       <span>Code Builder</span>
     </div>
     <nav class="footer-nav">
-      <a href="index.html">홈</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.roblox.com/join/1i9yw" target="_blank">플레이하기</a>
+      <a href="index.html" data-i18n="nav-home">홈</a>
+      <a href="about.html" data-i18n="nav-about">About</a>
+      <a href="contact.html" data-i18n="nav-contact">Contact</a>
+      <a href="https://www.roblox.com/join/1i9yw" target="_blank" data-i18n="footer-play">플레이하기</a>
     </nav>
     <div class="footer-legal">
       <a href="#">Privacy</a>
@@ -194,7 +198,7 @@
     </div>
   </div>
   <div class="footer-copy">
-    <div class="container">© 2026 Code Builder (TeamHaedal). All rights reserved.</div>
+    <div class="container" data-i18n="footer-copy">© 2026 Code Builder (TeamHaedal). All rights reserved.</div>
   </div>
 </footer>
 

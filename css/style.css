@@ -83,12 +83,32 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
 
 .nav-inner {
   max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
-  height: 100%; display: flex; align-items: center; justify-content: space-between;
+  height: 100%; display: flex; align-items: center; gap: 8px;
 }
+.nav-logo { margin-right: auto; }
 
 .nav-logo {
   display: flex; align-items: center; gap: 10px;
   font-size: 1.1rem; font-weight: 700; color: #fff;
+  margin-right: auto;
+}
+
+/* ─── Lang Switch ─── */
+.lang-switch {
+  display: flex; align-items: center; gap: 2px;
+  flex-shrink: 0;
+}
+.lang-btn {
+  padding: 5px 10px; border-radius: 6px;
+  background: none; border: 1px solid transparent;
+  color: var(--text-muted); font-size: .78rem; font-weight: 700;
+  letter-spacing: .04em; cursor: pointer;
+  transition: color .2s, background .2s, border-color .2s;
+}
+.lang-btn:hover { color: var(--text); background: rgba(255,255,255,.06); }
+.lang-btn.active {
+  color: #fff; background: rgba(255,255,255,.1);
+  border-color: var(--border);
 }
 .nav-logo img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
 
@@ -417,6 +437,7 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
 
 @media (max-width: 640px) {
   .nav-toggle { display: flex; }
+  /* lang-switch is always visible — sits between logo and hamburger */
   .nav-links {
     display: none; position: fixed; inset: var(--nav-h) 0 0 0;
     background: rgba(13,15,20,.98); backdrop-filter: blur(20px);

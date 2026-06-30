@@ -17,24 +17,28 @@
       <img src="img/Icon.png" alt="Code Builder" />
       <span>Code Builder</span>
     </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" data-i18n="nav-home">홈</a></li>
+      <li><a href="about.html" data-i18n="nav-about">About</a></li>
+      <li><a href="contact.html" class="active" data-i18n="nav-contact">Contact</a></li>
+      <li><a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-nav" data-i18n="nav-play">지금 플레이하기</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">KO</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
     <button class="nav-toggle" aria-label="메뉴 열기" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">홈</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-      <li><a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-nav">지금 플레이하기</a></li>
-    </ul>
   </div>
 </nav>
 
 <!-- ───────── PAGE HERO ───────── -->
 <section class="page-hero">
   <div class="container">
-    <div class="section-label">Contact</div>
-    <h1>무엇이든<br /><span class="highlight">물어보세요</span></h1>
-    <p class="page-hero-sub">제휴, 도입 문의, 또는 그냥 궁금한 것 무엇이든 환영합니다.</p>
+    <div class="section-label" data-i18n="contact-hero-label">Contact</div>
+    <h1 data-i18n="contact-hero-title">무엇이든<br /><span class="highlight">물어보세요</span></h1>
+    <p class="page-hero-sub" data-i18n="contact-hero-sub">제휴, 도입 문의, 또는 그냥 궁금한 것 무엇이든 환영합니다.</p>
   </div>
 </section>
 
@@ -44,44 +48,44 @@
 
     <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
       <div class="form-group">
-        <label for="name">이름 / 기관명 <span class="required">*</span></label>
-        <input type="text" id="name" name="name" placeholder="홍길동 / 코딩학원" required />
+        <label for="name"><span data-i18n="form-name-label">이름 / 기관명</span> <span class="required">*</span></label>
+        <input type="text" id="name" name="name" data-i18n-ph="form-name-ph" placeholder="홍길동 / 코딩학원" required />
       </div>
 
       <div class="form-group">
-        <label for="email">이메일 <span class="required">*</span></label>
+        <label for="email"><span data-i18n="form-email-label">이메일</span> <span class="required">*</span></label>
         <input type="email" id="email" name="email" placeholder="hello@example.com" required />
       </div>
 
       <div class="form-group">
-        <label for="type">문의 유형</label>
+        <label for="type" data-i18n="form-type-label">문의 유형</label>
         <select id="type" name="type">
-          <option value="">선택해주세요</option>
-          <option value="personal">개인</option>
-          <option value="academy">학원 · 기관</option>
-          <option value="partnership">제휴 · 미디어</option>
+          <option value="" data-i18n="opt-select">선택해주세요</option>
+          <option value="personal" data-i18n="opt-personal">개인</option>
+          <option value="academy" data-i18n="opt-academy">학원 · 기관</option>
+          <option value="partnership" data-i18n="opt-partner">제휴 · 미디어</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="message">내용</label>
-        <textarea id="message" name="message" rows="6" placeholder="문의 내용을 자유롭게 작성해주세요."></textarea>
+        <label for="message" data-i18n="form-msg-label">내용</label>
+        <textarea id="message" name="message" rows="6" data-i18n-ph="form-msg-ph" placeholder="문의 내용을 자유롭게 작성해주세요."></textarea>
       </div>
 
-      <button type="submit" class="btn-primary btn-full">보내기 →</button>
+      <button type="submit" class="btn-primary btn-full" data-i18n="form-submit">보내기 →</button>
       <div id="formStatus" class="form-status" hidden></div>
     </form>
 
     <aside class="contact-info">
       <div class="contact-info-card">
-        <h3>직접 연락하기</h3>
-        <p>양식 대신 직접 이메일로 연락해도 됩니다.</p>
+        <h3 data-i18n="info1-title">직접 연락하기</h3>
+        <p data-i18n="info1-desc">양식 대신 직접 이메일로 연락해도 됩니다.</p>
         <a href="mailto:choikm3847@haedal.io" class="contact-email">choikm3847@haedal.io</a>
       </div>
       <div class="contact-info-card">
-        <h3>게임 바로가기</h3>
-        <p>지금 바로 로블록스에서 Code Builder를 체험해보세요.</p>
-        <a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-primary" style="margin-top:0.75rem;display:inline-block;">▶ 플레이하기</a>
+        <h3 data-i18n="info2-title">게임 바로가기</h3>
+        <p data-i18n="info2-desc">지금 바로 로블록스에서 Code Builder를 체험해보세요.</p>
+        <a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-primary" style="margin-top:0.75rem;display:inline-block;" data-i18n="info2-play">▶ 플레이하기</a>
       </div>
     </aside>
 
@@ -96,10 +100,10 @@
       <span>Code Builder</span>
     </div>
     <nav class="footer-nav">
-      <a href="index.html">홈</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.roblox.com/join/1i9yw" target="_blank">플레이하기</a>
+      <a href="index.html" data-i18n="nav-home">홈</a>
+      <a href="about.html" data-i18n="nav-about">About</a>
+      <a href="contact.html" data-i18n="nav-contact">Contact</a>
+      <a href="https://www.roblox.com/join/1i9yw" target="_blank" data-i18n="footer-play">플레이하기</a>
     </nav>
     <div class="footer-legal">
       <a href="#">Privacy</a>
@@ -107,7 +111,7 @@
     </div>
   </div>
   <div class="footer-copy">
-    <div class="container">© 2026 Code Builder (TeamHaedal). All rights reserved.</div>
+    <div class="container" data-i18n="footer-copy">© 2026 Code Builder (TeamHaedal). All rights reserved.</div>
   </div>
 </footer>
 
