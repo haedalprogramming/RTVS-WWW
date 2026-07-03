@@ -3,9 +3,9 @@ const T = {
   ko: {
     // Nav
     'nav-home':  '홈',
-    'nav-about': 'About',
+    'nav-about': '소개',
     'nav-guide': '매뉴얼',
-    'nav-contact': 'Contact',
+    'nav-contact': '문의',
     'nav-play':  '지금 플레이하기',
     'footer-play': '플레이하기',
 
@@ -127,6 +127,7 @@ const T = {
     'form-msg-ph':    '문의 내용을 자유롭게 작성해주세요.',
     'form-submit':    '보내기 →',
     'form-success':   '감사합니다! 빠른 시일 내에 연락드리겠습니다.',
+    'form-error':     '문제가 발생했어요. 잠시 후 다시 시도하거나 이메일로 문의해주세요.',
 
     // Contact — Info
     'info1-title': '직접 연락하기',
@@ -412,6 +413,7 @@ const T = {
     'form-msg-ph':    'Tell us what\'s on your mind.',
     'form-submit':    'Send →',
     'form-success':   'Thank you! We\'ll get back to you soon.',
+    'form-error':     'Something went wrong. Please try again shortly or email us directly.',
 
     // Contact — Info
     'info1-title': 'Contact Directly',
@@ -638,7 +640,7 @@ document.querySelectorAll('.feature-card, .step, .stat-card, .team-card').forEac
 });
 
 // ─── Contact Form ────────────────────────────────────────────
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const status = document.getElementById('formStatus');
@@ -648,11 +650,28 @@ function handleSubmit(e) {
   btn.disabled = true;
   btn.textContent = lang === 'en' ? 'Sending…' : '전송 중…';
 
-  setTimeout(() => {
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name.value,
+        email: form.email.value,
+        type: form.type.value,
+        message: form.message.value,
+      }),
+    });
+    if (!res.ok) throw new Error('request failed');
+
     status.hidden = false;
     status.className = 'form-status success';
     status.textContent = T[lang]['form-success'];
     form.reset();
+  } catch (err) {
+    status.hidden = false;
+    status.className = 'form-status error';
+    status.textContent = T[lang]['form-error'];
+  } finally {
     btn.disabled = false;
     btn.innerHTML = T[lang]['form-submit'];
     // Re-apply placeholders after reset
@@ -660,7 +679,7 @@ function handleSubmit(e) {
       const val = T[lang][el.dataset.i18nPh];
       if (val != null) el.placeholder = val;
     });
-  }, 800);
+  }
 }
 
 // ─── Init ────────────────────────────────────────────────────
