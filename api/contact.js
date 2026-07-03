@@ -5,7 +5,7 @@
 
 const TYPE_LABELS = {
   personal: '개인',
-  academy: '학원 · 기관',
+  academy: '학교 · 기관',
   partnership: '제휴 · 미디어',
 };
 
@@ -21,12 +21,12 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: 'Server misconfigured' });
   }
 
-  const { name, email, type, message } = req.body || {};
+  const { name, org, email, type, message } = req.body || {};
 
   if (!name || !email || typeof name !== 'string' || typeof email !== 'string') {
     return res.status(400).json({ error: 'name and email are required' });
   }
-  if (name.length > 200 || email.length > 200 || (message && message.length > 4000)) {
+  if (name.length > 200 || email.length > 200 || (org && org.length > 200) || (message && message.length > 4000)) {
     return res.status(400).json({ error: 'Input too long' });
   }
 
@@ -34,7 +34,8 @@ module.exports = async function handler(req, res) {
 
   const text = [
     '*새 문의가 도착했습니다 (Code Builder 웹사이트)*',
-    `*이름/기관명:* ${name}`,
+    `*이름:* ${name}`,
+    `*기관명:* ${org ? String(org).slice(0, 200) : '-'}`,
     `*이메일:* ${email}`,
     `*문의 유형:* ${typeLabel}`,
     `*내용:*\n${message ? String(message).slice(0, 4000) : '-'}`,

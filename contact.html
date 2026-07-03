@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Code Builder</title>
-  <meta name="description" content="Code Builder에 문의하세요. 개인, 학원·기관, 제휴·미디어 문의를 받습니다." />
+  <meta name="description" content="Code Builder에 문의하세요. 개인, 학교·기관, 제휴·미디어 문의를 받습니다." />
   <link rel="icon" href="img/Icon.png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -49,8 +49,13 @@
 
     <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
       <div class="form-group">
-        <label for="name"><span data-i18n="form-name-label">이름 / 기관명</span> <span class="required">*</span></label>
-        <input type="text" id="name" name="name" data-i18n-ph="form-name-ph" placeholder="홍길동 / 코딩학원" required />
+        <label for="name"><span data-i18n="form-name-label">이름</span> <span class="required">*</span></label>
+        <input type="text" id="name" name="name" data-i18n-ph="form-name-ph" placeholder="홍길동" required />
+      </div>
+
+      <div class="form-group">
+        <label for="org"><span data-i18n="form-org-label">기관명</span></label>
+        <input type="text" id="org" name="org" data-i18n-ph="form-org-ph" placeholder="OO초등학교 (선택)" />
       </div>
 
       <div class="form-group">
@@ -63,7 +68,7 @@
         <select id="type" name="type">
           <option value="" data-i18n="opt-select">선택해주세요</option>
           <option value="personal" data-i18n="opt-personal">개인</option>
-          <option value="academy" data-i18n="opt-academy">학원 · 기관</option>
+          <option value="academy" data-i18n="opt-academy">학교 · 기관</option>
           <option value="partnership" data-i18n="opt-partner">제휴 · 미디어</option>
         </select>
       </div>
