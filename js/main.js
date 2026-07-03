@@ -4,6 +4,7 @@ const T = {
     // Nav
     'nav-home':  '홈',
     'nav-about': 'About',
+    'nav-guide': '매뉴얼',
     'nav-contact': 'Contact',
     'nav-play':  '지금 플레이하기',
     'footer-play': '플레이하기',
@@ -25,8 +26,18 @@ const T = {
     'feat2-desc':  '블록을 조립하고 실행을 누르면 에이전트가 게임 속에서 즉시 반응',
     'feat3-title': '예측 불가 에이전트',
     'feat3-desc':  '에이전트가 항상 완벽하게 명령을 따르지 않음 — 그것도 게임의 재미이자 도전',
-    'feat4-title': '12단계 커리큘럼',
-    'feat4-desc':  '움직임 · 루프 · 조건문 · 함수를 다루는 12개의 점진적인 수업',
+    'feat4-title': '12차시 커리큘럼',
+    'feat4-desc':  '이동 → 꽃 심기 → 반복 → 조건 → 함수, 나만의 정원을 완성하며 익히는 12개의 점진적인 수업',
+
+    // Home — Difference
+    'diff-label': '다른 점',
+    'diff-title': '게임 밖이 아니라,<br />게임 안에서 코딩합니다',
+    'diff1-title': '웹 기반 코딩 학습',
+    'diff1-desc':  '브라우저에서 블록을 조립하지만, 결과는 게임과 분리된 별도 화면에서만 확인합니다',
+    'diff2-title': '게임 연동형 코딩 도구',
+    'diff2-desc':  '게임과 연동되긴 하지만, 별도 프로그램 설치가 필요하고 대부분 유료입니다',
+    'diff3-title': 'Code Builder',
+    'diff3-desc':  '설치 없이, 로블록스를 플레이하는 도중 <kbd>C</kbd>키 하나로 코드창을 열고 즉시 실행합니다',
 
     // Home — How It Works
     'hiw-label': '작동 방식',
@@ -35,6 +46,7 @@ const T = {
     'step1-desc':  '게임 도중 <kbd>C</kbd>키(PC) 또는 <strong>&lt;&gt;</strong> 버튼(모바일)을 누르면 화면 우측에 블록 코딩 패널이 나타납니다.',
     'step2-title': '블록 조립',
     'step2-desc':  '이동 · 반복 · 조건 · 함수 블록을 드래그해 명령을 만들어보세요. 코딩 경험이 없어도 됩니다.',
+    'step2-example': '앞으로 이동 → (앞으로 이동 × 오른쪽 회전) 3회 반복',
     'step3-title': '실행 — 게임 속에서 확인',
     'step3-desc':  '▶ 실행 버튼을 누르면 에이전트가 즉시 움직입니다. 결과를 보고 코드를 수정하며 배워나갑니다.',
 
@@ -122,12 +134,162 @@ const T = {
     'info2-title': '게임 바로가기',
     'info2-desc':  '지금 바로 로블록스에서 Code Builder를 체험해보세요.',
     'info2-play':  '▶ 플레이하기',
+
+    // Guide — Hero
+    'guide-hero-label': 'Guide',
+    'guide-hero-title': '선생님을 위한<br /><span class="highlight">체험학습 매뉴얼</span>',
+    'guide-hero-sub':   'Code Builder 12차시 커리큘럼으로 코딩 수업을 준비하는 방법',
+
+    // Guide — Intro
+    'guide-intro-label': '가이드',
+    'guide-intro-title': 'Code Builder로<br />코딩 수업을 시작하세요',
+    'guide-intro-p1': 'Code Builder는 로블록스 플레이 도중 블록 코딩 창을 열어 에이전트에게 명령을 내리는 인게임 코딩 교육 플랫폼입니다. 별도 프로그램 설치 없이, 학생들은 이미 익숙한 로블록스 화면에서 바로 코딩을 시작할 수 있습니다.',
+    'guide-intro-p2': '이 매뉴얼은 초·중등 교사와 코딩 강사가 12차시 커리큘럼을 체험학습·방과후 수업에 활용할 때 참고할 수 있도록 준비물, 진행 방법, 차시별 학습목표를 정리했습니다.',
+
+    // Guide — Prep
+    'guide-prep-label': '수업 준비',
+    'guide-prep-title': '시작하기 전 준비물',
+    'prep1-title': '기기',
+    'prep1-desc':  'PC(키보드) 또는 모바일 · 태블릿. 학생 1인당 1대, 어려우면 2인 1팀도 가능합니다',
+    'prep2-title': '인터넷 연결',
+    'prep2-desc':  '로블록스 서버 접속을 위한 안정적인 와이파이가 필요합니다',
+    'prep3-title': '로블록스 계정',
+    'prep3-desc':  '학생별 또는 팀별로 미리 로그인해두면 수업 시간을 아낄 수 있습니다',
+    'prep4-title': '플레이 링크 공유',
+    'prep4-desc':  '게임 링크를 QR코드나 채팅으로 미리 공유해 접속 시간을 줄이세요',
+
+    // Guide — Onboarding
+    'guide-onboard-label': '첫 접속',
+    'guide-onboard-title': '5단계 온보딩 튜토리얼',
+    'guide-onboard-sub': '학생이 처음 접속하면 아래 5단계 카드가 자동으로 표시됩니다. 별도 설명 없이도 따라올 수 있지만, 미리 알아두면 질문에 빠르게 답할 수 있어요.',
+    'onboard1-title': '코드 빌더에 오신 걸 환영해요!',
+    'onboard1-desc':  '블록을 조립해 캐릭터를 움직여 보세요. 캐릭터가 항상 말을 잘 듣지 않을 수 있어요.',
+    'onboard2-title': '열고 닫기',
+    'onboard2-desc':  '<kbd>C</kbd> 키(PC) 또는 <strong>&lt;&gt;</strong> 버튼(모바일)으로 코드 빌더를 열고 닫을 수 있어요.',
+    'onboard3-title': '캐릭터 선택',
+    'onboard3-desc':  '헤더의 <strong>&lt;</strong> / <strong>&gt;</strong> 버튼으로 조종할 에이전트를 선택하세요.',
+    'onboard4-title': '블록 팔레트',
+    'onboard4-desc':  '왼쪽에서 블록을 드래그해 캔버스에 쌓으세요. 탭으로 블록 종류를 바꿀 수 있어요.',
+    'onboard5-title': '실행해 보세요!',
+    'onboard5-desc':  '실행 버튼으로 코드를 돌리고, 초기화 버튼으로 에이전트를 원위치로 돌릴 수 있어요.',
+
+    // Guide — Blocks
+    'guide-blocks-label': '블록 살펴보기',
+    'guide-blocks-title': '사용 가능한 블록 7종',
+    'block1-title': '앞으로 이동',
+    'block1-desc':  'Action · 에이전트를 앞으로 한 칸(8스터드) 이동',
+    'block2-title': '오른쪽 회전',
+    'block2-desc':  'Action · 에이전트를 오른쪽으로 90도 회전',
+    'block3-title': '꽃 심기',
+    'block3-desc':  'Action · 에이전트가 서 있는 위치에 꽃을 심음',
+    'block4-title': '반복',
+    'block4-desc':  'Loop · 안에 담긴 블록을 N번 반복 실행 (최대 20회)',
+    'block5-title': '장애물이 있으면',
+    'block5-desc':  'Conditional · 전방에 장애물이 있을 때만 안의 블록 실행',
+    'block6-title': '함수 만들기',
+    'block6-desc':  'Function · 이름을 붙인 블록 묶음을 정의',
+    'block7-title': '함수 호출',
+    'block7-desc':  'Function · 미리 만들어 둔 함수를 실행',
+
+    // Guide — Curriculum
+    'guide-curriculum-label': '12차시 커리큘럼',
+    'guide-curriculum-title': '차시별 학습목표 &amp; 진행 조건',
+    'guide-curriculum-note': '각 차시는 50분 기준입니다. 학생이 골 타일에 도달하거나 목표 개수의 꽃을 심으면 시스템이 자동으로 다음 차시 맵으로 이동시킵니다 — 교사가 진행을 일일이 체크하지 않아도 됩니다.',
+
+    'gl1-title': '코드빌더 시작하기',
+    'gl1-goal':  '블록 코드로 캐릭터를 이동시킬 수 있다',
+    'gl1-concept': '순차구조',
+    'gl1-blocks':  '앞으로 이동 · 오른쪽 회전',
+    'gl1-cond':  '진행 조건: <strong>Goal 타일 도달</strong>',
+
+    'gl2-title': '미로 탈출하기',
+    'gl2-goal':  '순서에 맞게 블록을 나열하여 미로를 탈출할 수 있다',
+    'gl2-concept': '순차 심화',
+    'gl2-blocks':  '앞으로 이동 · 오른쪽 회전',
+    'gl2-cond':  '진행 조건: <strong>Goal 타일 도달</strong>',
+
+    'gl3-title': '꽃 한 송이 심기',
+    'gl3-goal':  '이동과 함께 꽃 심기 블록을 사용할 수 있다',
+    'gl3-concept': '꽃 심기 도입',
+    'gl3-blocks':  '앞으로 이동 · 꽃 심기',
+    'gl3-cond':  '진행 조건: <strong>꽃 1송이 심기</strong>',
+
+    'gl4-title': '꽃길 만들기',
+    'gl4-goal':  '이동하면서 꽃을 심어 패턴을 만들 수 있다',
+    'gl4-concept': '순차 + 꽃 심기',
+    'gl4-blocks':  '앞으로 이동 · 꽃 심기',
+    'gl4-cond':  '진행 조건: <strong>꽃 3송이 심기</strong>',
+
+    'gl5-title': '반복으로 미로 탈출',
+    'gl5-goal':  '반복 블록으로 같은 동작을 여러 번 실행할 수 있다',
+    'gl5-concept': '반복문',
+    'gl5-blocks':  '반복',
+    'gl5-cond':  '진행 조건: <strong>Goal 타일 도달</strong>',
+
+    'gl6-title': '반복으로 꽃밭 만들기',
+    'gl6-goal':  '반복 블록으로 규칙적인 꽃밭을 만들 수 있다',
+    'gl6-concept': '반복 + 꽃 심기',
+    'gl6-blocks':  '반복 · 꽃 심기',
+    'gl6-cond':  '진행 조건: <strong>꽃 5송이 심기</strong>',
+
+    'gl7-title': '장애물 감지하기',
+    'gl7-goal':  '조건 블록으로 장애물을 감지하고 행동을 바꿀 수 있다',
+    'gl7-concept': '조건문',
+    'gl7-blocks':  '장애물이 있으면',
+    'gl7-cond':  '진행 조건: <strong>Goal 타일 도달</strong>',
+
+    'gl8-title': '반복 속 조건',
+    'gl8-goal':  '반복 안에 조건을 넣어 복잡한 동작을 만들 수 있다',
+    'gl8-concept': '반복 + 조건 중첩',
+    'gl8-blocks':  '반복 · 장애물이 있으면',
+    'gl8-cond':  '진행 조건: <strong>Goal 타일 도달</strong>',
+
+    'gl9-title': '나만의 함수 만들기',
+    'gl9-goal':  '함수를 정의하고 호출하여 코드를 재사용할 수 있다',
+    'gl9-concept': '함수 정의 · 호출',
+    'gl9-blocks':  '함수 만들기 · 함수 호출',
+    'gl9-cond':  '진행 조건: <strong>꽃 3송이 심기</strong>',
+
+    'gl10-title': '함수로 꽃길 만들기',
+    'gl10-goal':  '함수와 반복 블록을 함께 사용하여 자동으로 꽃길을 만들 수 있다',
+    'gl10-concept': '함수 + 반복 응용',
+    'gl10-blocks':  '함수 · 반복 · 꽃 심기',
+    'gl10-cond':  '진행 조건: <strong>꽃 5송이 심기</strong>',
+
+    'gl11-title': '함수 여러 개 조합하기',
+    'gl11-goal':  '여러 함수를 만들고 조합하여 복잡한 동작을 만들 수 있다',
+    'gl11-concept': '함수 심화',
+    'gl11-blocks':  '함수 만들기 · 함수 호출',
+    'gl11-cond':  '진행 조건: <strong>꽃 6송이 심기</strong>',
+
+    'gl12-title': '나만의 정원 만들기',
+    'gl12-goal':  '배운 모든 블록을 활용하여 나만의 정원을 창작할 수 있다',
+    'gl12-concept': '자유 프로젝트',
+    'gl12-blocks':  '전체 블록',
+    'gl12-cond':  '진행 조건: <strong>꽃 10송이 심기</strong>',
+
+    // Guide — Tips
+    'guide-tips-label': '진행 팁',
+    'guide-tips-title': '수업이 매끄러워지는 4가지 팁',
+    'tip1-title': '자동 진행 시스템',
+    'tip1-desc':  '목표(골 도달 · 꽃 개수)를 달성하면 시스템이 자동으로 다음 차시 맵으로 이동시킵니다. 진행 여부를 따로 체크하지 않아도 됩니다',
+    'tip2-title': '리더보드로 동기부여',
+    'tip2-desc':  '화면 좌측 상단에 차시 진행 순위가 표시됩니다. 서로의 진행 상황을 보며 자연스럽게 동기부여가 됩니다',
+    'tip3-title': '초기화 버튼 활용',
+    'tip3-desc':  '에이전트가 막히거나 실수했을 때 초기화 버튼으로 위치만 리셋할 수 있어요. 심어둔 꽃은 그대로 유지됩니다',
+    'tip4-title': '안전한 명령 실행',
+    'tip4-desc':  '서버가 모든 명령을 검증해 허용된 블록만 실행되므로, 예상치 못한 동작으로부터 안전합니다',
+
+    // Guide — CTA
+    'guide-cta-title': '체험학습 도입이 궁금하신가요?',
+    'guide-cta-desc':  '학교 · 학원 · 기관 단위 체험학습 및 방과후 수업 도입 문의를 받고 있습니다.',
   },
 
   en: {
     // Nav
     'nav-home':    'Home',
     'nav-about':   'About',
+    'nav-guide':   'Guide',
     'nav-contact': 'Contact',
     'nav-play':    'Play Now',
     'footer-play': 'Play',
@@ -149,8 +311,18 @@ const T = {
     'feat2-desc':  'Assemble blocks and press Run — your agent reacts in the game world instantly',
     'feat3-title': 'Unpredictable Agent',
     'feat3-desc':  'Your agent won\'t always follow commands perfectly — that\'s part of the fun and the challenge',
-    'feat4-title': '12-Stage Curriculum',
-    'feat4-desc':  '12 progressive lessons covering movement, loops, conditionals, and functions',
+    'feat4-title': '12-Lesson Curriculum',
+    'feat4-desc':  'Movement → planting → loops → conditionals → functions — 12 progressive lessons that build toward your own garden',
+
+    // Home — Difference
+    'diff-label': 'What\'s Different',
+    'diff-title': 'Not outside the game —<br />coding happens inside it',
+    'diff1-title': 'Web-Based Coding Tools',
+    'diff1-desc':  'You assemble blocks in a browser, but the result only shows up on a separate screen, apart from any game',
+    'diff2-title': 'Game-Linked Coding Tools',
+    'diff2-desc':  'These connect to a game, but require a separate program install and are mostly paid',
+    'diff3-title': 'Code Builder',
+    'diff3-desc':  'No install — press <kbd>C</kbd> while playing Roblox to open the code window and run it instantly',
 
     // Home — How It Works
     'hiw-label': 'How It Works',
@@ -159,6 +331,7 @@ const T = {
     'step1-desc':  'During gameplay, press <kbd>C</kbd> (PC) or the <strong>&lt;&gt;</strong> button (mobile) to open the block coding panel on the right side of the screen.',
     'step2-title': 'Assemble Blocks',
     'step2-desc':  'Drag movement, loop, condition, and function blocks to build your command. No prior coding experience needed.',
+    'step2-example': 'Move Forward → (Move Forward × Turn Right) repeat 3 times',
     'step3-title': 'Run — See It in the Game',
     'step3-desc':  'Press ▶ Run and the agent moves immediately. Watch the result, tweak your code, and learn as you go.',
 
@@ -246,6 +419,155 @@ const T = {
     'info2-title': 'Play the Game',
     'info2-desc':  'Experience Code Builder on Roblox right now.',
     'info2-play':  '▶ Play Now',
+
+    // Guide — Hero
+    'guide-hero-label': 'Guide',
+    'guide-hero-title': 'A Field-Trip Manual<br /><span class="highlight">for Teachers</span>',
+    'guide-hero-sub':   'How to run a coding class with the Code Builder 12-lesson curriculum',
+
+    // Guide — Intro
+    'guide-intro-label': 'Guide',
+    'guide-intro-title': 'Start Teaching<br />with Code Builder',
+    'guide-intro-p1': 'Code Builder is an in-game coding education platform where students open a block coding window during Roblox gameplay and give commands to their agent. With no separate install, students can start coding right inside a screen they already know.',
+    'guide-intro-p2': 'This manual gives elementary and middle school teachers and coding instructors what they need to run the 12-lesson curriculum as a field trip or after-school class — what to prepare, how to run it, and each lesson\'s learning goal.',
+
+    // Guide — Prep
+    'guide-prep-label': 'Before Class',
+    'guide-prep-title': 'What You\'ll Need',
+    'prep1-title': 'Devices',
+    'prep1-desc':  'PC (keyboard) or mobile/tablet. One per student is ideal; pairs of two also work',
+    'prep2-title': 'Internet Connection',
+    'prep2-desc':  'A stable Wi-Fi connection is needed to reach Roblox servers',
+    'prep3-title': 'Roblox Accounts',
+    'prep3-desc':  'Have students (or teams) log in ahead of time to save class time',
+    'prep4-title': 'Share the Play Link',
+    'prep4-desc':  'Share the game link via QR code or chat beforehand to speed up joining',
+
+    // Guide — Onboarding
+    'guide-onboard-label': 'First Launch',
+    'guide-onboard-title': 'The 5-Step Onboarding Tutorial',
+    'guide-onboard-sub': 'New players automatically see these 5 cards on first launch. Students can follow along on their own, but knowing them ahead of time helps you answer questions fast.',
+    'onboard1-title': 'Welcome to Code Builder!',
+    'onboard1-desc':  'Assemble blocks to move your character. Your character won\'t always listen perfectly.',
+    'onboard2-title': 'Open & Close',
+    'onboard2-desc':  'Press <kbd>C</kbd> (PC) or the <strong>&lt;&gt;</strong> button (mobile) to open and close the Code Builder.',
+    'onboard3-title': 'Select a Character',
+    'onboard3-desc':  'Use the <strong>&lt;</strong> / <strong>&gt;</strong> buttons in the header to pick which agent to control.',
+    'onboard4-title': 'Block Palette',
+    'onboard4-desc':  'Drag blocks from the left onto the canvas. Switch categories using the tabs.',
+    'onboard5-title': 'Give It a Run!',
+    'onboard5-desc':  'Press Run to execute your code, and Reset to move the agent back to its start position.',
+
+    // Guide — Blocks
+    'guide-blocks-label': 'The Blocks',
+    'guide-blocks-title': '7 Available Blocks',
+    'block1-title': 'Move Forward',
+    'block1-desc':  'Action · Moves the agent forward one tile (8 studs)',
+    'block2-title': 'Turn Right',
+    'block2-desc':  'Action · Rotates the agent 90 degrees to the right',
+    'block3-title': 'Place Flower',
+    'block3-desc':  'Action · Plants a flower at the agent\'s current position',
+    'block4-title': 'Repeat',
+    'block4-desc':  'Loop · Runs the blocks inside N times (max 20)',
+    'block5-title': 'If Obstacle',
+    'block5-desc':  'Conditional · Runs the blocks inside only when an obstacle is ahead',
+    'block6-title': 'Define Function',
+    'block6-desc':  'Function · Names and defines a group of blocks',
+    'block7-title': 'Call Function',
+    'block7-desc':  'Function · Runs a previously defined function',
+
+    // Guide — Curriculum
+    'guide-curriculum-label': '12-Lesson Curriculum',
+    'guide-curriculum-title': 'Learning Goals &amp; Progress Conditions',
+    'guide-curriculum-note': 'Each lesson runs about 50 minutes. When a student reaches the goal tile or plants the target number of flowers, the system automatically advances them to the next lesson\'s map — no manual checking required.',
+
+    'gl1-title': 'Getting Started with Code Builder',
+    'gl1-goal':  'Can move the character using block code',
+    'gl1-concept': 'Sequencing',
+    'gl1-blocks':  'Move Forward · Turn Right',
+    'gl1-cond':  'Progress: <strong>Reach the Goal Tile</strong>',
+
+    'gl2-title': 'Escaping the Maze',
+    'gl2-goal':  'Can escape a maze by arranging blocks in the right order',
+    'gl2-concept': 'Sequencing (Advanced)',
+    'gl2-blocks':  'Move Forward · Turn Right',
+    'gl2-cond':  'Progress: <strong>Reach the Goal Tile</strong>',
+
+    'gl3-title': 'Planting One Flower',
+    'gl3-goal':  'Can use the Place Flower block together with movement',
+    'gl3-concept': 'Intro to Place Flower',
+    'gl3-blocks':  'Move Forward · Place Flower',
+    'gl3-cond':  'Progress: <strong>Plant 1 flower</strong>',
+
+    'gl4-title': 'Making a Flower Path',
+    'gl4-goal':  'Can plant flowers while moving to form a pattern',
+    'gl4-concept': 'Sequencing + Planting',
+    'gl4-blocks':  'Move Forward · Place Flower',
+    'gl4-cond':  'Progress: <strong>Plant 3 flowers</strong>',
+
+    'gl5-title': 'Escaping the Maze with Loops',
+    'gl5-goal':  'Can repeat the same action multiple times using a loop block',
+    'gl5-concept': 'Loops',
+    'gl5-blocks':  'Repeat',
+    'gl5-cond':  'Progress: <strong>Reach the Goal Tile</strong>',
+
+    'gl6-title': 'Building a Flower Bed with Loops',
+    'gl6-goal':  'Can create a regular flower bed using a loop block',
+    'gl6-concept': 'Loops + Planting',
+    'gl6-blocks':  'Repeat · Place Flower',
+    'gl6-cond':  'Progress: <strong>Plant 5 flowers</strong>',
+
+    'gl7-title': 'Detecting Obstacles',
+    'gl7-goal':  'Can detect an obstacle and change behavior using a conditional block',
+    'gl7-concept': 'Conditionals',
+    'gl7-blocks':  'If Obstacle',
+    'gl7-cond':  'Progress: <strong>Reach the Goal Tile</strong>',
+
+    'gl8-title': 'Conditionals Inside Loops',
+    'gl8-goal':  'Can create complex behavior by nesting a conditional inside a loop',
+    'gl8-concept': 'Loops + Nested Conditionals',
+    'gl8-blocks':  'Repeat · If Obstacle',
+    'gl8-cond':  'Progress: <strong>Reach the Goal Tile</strong>',
+
+    'gl9-title': 'Making Your Own Function',
+    'gl9-goal':  'Can reuse code by defining and calling a function',
+    'gl9-concept': 'Defining & Calling Functions',
+    'gl9-blocks':  'Define Function · Call Function',
+    'gl9-cond':  'Progress: <strong>Plant 3 flowers</strong>',
+
+    'gl10-title': 'A Flower Path Using Functions',
+    'gl10-goal':  'Can combine functions and loops to build a flower path automatically',
+    'gl10-concept': 'Functions + Loops',
+    'gl10-blocks':  'Function · Repeat · Place Flower',
+    'gl10-cond':  'Progress: <strong>Plant 5 flowers</strong>',
+
+    'gl11-title': 'Combining Multiple Functions',
+    'gl11-goal':  'Can build complex behavior by creating and combining several functions',
+    'gl11-concept': 'Functions (Advanced)',
+    'gl11-blocks':  'Define Function · Call Function',
+    'gl11-cond':  'Progress: <strong>Plant 6 flowers</strong>',
+
+    'gl12-title': 'Building Your Own Garden',
+    'gl12-goal':  'Can create a personal garden using everything learned so far',
+    'gl12-concept': 'Free Project',
+    'gl12-blocks':  'All blocks',
+    'gl12-cond':  'Progress: <strong>Plant 10 flowers</strong>',
+
+    // Guide — Tips
+    'guide-tips-label': 'Tips',
+    'guide-tips-title': '4 Tips for a Smoother Class',
+    'tip1-title': 'Automatic Progression',
+    'tip1-desc':  'When students reach a goal (tile or flower count), the system automatically moves them to the next lesson\'s map — no manual checking needed',
+    'tip2-title': 'Motivate with the Leaderboard',
+    'tip2-desc':  'A lesson-progress ranking shows in the top-left of the screen. Seeing each other\'s progress naturally motivates students',
+    'tip3-title': 'Use the Reset Button',
+    'tip3-desc':  'If an agent gets stuck or makes a mistake, Reset only resets its position — any flowers already planted stay put',
+    'tip4-title': 'Safe Command Execution',
+    'tip4-desc':  'The server validates every command so only allowed blocks run, keeping students safe from unexpected behavior',
+
+    // Guide — CTA
+    'guide-cta-title': 'Curious about bringing this to your students?',
+    'guide-cta-desc':  'We welcome inquiries about field trips and after-school programs for schools, academies, and institutions.',
   },
 };
 
