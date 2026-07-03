@@ -5,42 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Code Builder — 코드로 세상을 바꿔라</title>
   <meta name="description" content="내가 만든 코드가 즉시 게임 속에 반영되는 교육용 블록 코딩 플랫폼" />
-  <link rel="icon" href="img/Icon.png" />
-  <link rel="stylesheet" href="css/style.css" />
-  <meta name="google-site-verification" content="spc3OEs8Wg_2DoWZKubpUnns2bNNtkRFOwjsmYbPFXs" />
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-539TLRTD');</script>
-  <!-- End Google Tag Manager -->
+<!--#include:head-->
 </head>
 <body>
 
-<!-- ───────── NAV ───────── -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="img/Icon.png" alt="Code Builder" />
-      <span>Code Builder</span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="active" data-i18n="nav-home">홈</a></li>
-      <li><a href="about.html" data-i18n="nav-about">소개</a></li>
-      <li><a href="guide.html" data-i18n="nav-guide">매뉴얼</a></li>
-      <li><a href="contact.html" data-i18n="nav-contact">문의</a></li>
-      <li><a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-nav" data-i18n="nav-play">지금 플레이하기</a></li>
-    </ul>
-    <div class="lang-switch">
-      <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">KO</button>
-      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-    </div>
-    <button class="nav-toggle" aria-label="메뉴 열기" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+<!--#include:nav-->
 
 <!-- ───────── HERO ───────── -->
 <section class="hero">
@@ -224,34 +193,6 @@
   </div>
 </section>
 
-<!-- ───────── FOOTER ───────── -->
-<footer class="footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <img src="img/Icon.png" alt="Code Builder" />
-      <span>Code Builder</span>
-    </div>
-    <nav class="footer-nav">
-      <a href="index.html" data-i18n="nav-home">홈</a>
-      <a href="about.html" data-i18n="nav-about">소개</a>
-      <a href="guide.html" data-i18n="nav-guide">매뉴얼</a>
-      <a href="contact.html" data-i18n="nav-contact">문의</a>
-      <a href="https://www.roblox.com/join/1i9yw" target="_blank" data-i18n="footer-play">플레이하기</a>
-    </nav>
-    <div class="footer-legal">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-    </div>
-  </div>
-  <div class="footer-copy">
-    <div class="container" data-i18n="footer-copy">© 2026 Code Builder (GTVS). All rights reserved.</div>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-539TLRTD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!--#include:footer-->
 </body>
 </html>
