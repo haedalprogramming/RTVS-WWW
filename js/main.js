@@ -63,7 +63,7 @@ const T = {
     'cta-contact': '문의하기',
 
     // Footer
-    'footer-copy': '© 2026 Code Builder (TeamHaedal). All rights reserved.',
+    'footer-copy': '© 2026 Code Builder (GTVS). All rights reserved.',
 
     // About — Page Hero
     'about-hero-label': 'About',
@@ -351,7 +351,7 @@ const T = {
     'cta-contact': 'Contact Us',
 
     // Footer
-    'footer-copy': '© 2026 Code Builder (TeamHaedal). All rights reserved.',
+    'footer-copy': '© 2026 Code Builder (GTVS). All rights reserved.',
 
     // About — Page Hero
     'about-hero-label': 'About',
