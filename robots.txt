@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roblox.code-builder.kr/sitemap.xml
