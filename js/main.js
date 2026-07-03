@@ -63,7 +63,7 @@ const T = {
     'cta-contact': '문의하기',
 
     // Footer
-    'footer-copy': '© 2026 Code Builder (TeamHaedal). All rights reserved.',
+    'footer-copy': '© 2026 Code Builder (GTVS). All rights reserved.',
 
     // About — Page Hero
     'about-hero-label': 'About',
@@ -115,13 +115,15 @@ const T = {
     'contact-hero-sub':   '제휴, 도입 문의, 또는 그냥 궁금한 것 무엇이든 환영합니다.',
 
     // Contact — Form
-    'form-name-label': '이름 / 기관명',
-    'form-name-ph':    '홍길동 / 코딩학원',
+    'form-name-label': '이름',
+    'form-name-ph':    '홍길동',
+    'form-org-label':  '기관명',
+    'form-org-ph':     'OO초등학교 (선택)',
     'form-email-label': '이메일',
     'form-type-label': '문의 유형',
     'opt-select':   '선택해주세요',
     'opt-personal': '개인',
-    'opt-academy':  '학원 · 기관',
+    'opt-academy':  '학교 · 기관',
     'opt-partner':  '제휴 · 미디어',
     'form-msg-label': '내용',
     'form-msg-ph':    '문의 내용을 자유롭게 작성해주세요.',
@@ -349,7 +351,7 @@ const T = {
     'cta-contact': 'Contact Us',
 
     // Footer
-    'footer-copy': '© 2026 Code Builder (TeamHaedal). All rights reserved.',
+    'footer-copy': '© 2026 Code Builder (GTVS). All rights reserved.',
 
     // About — Page Hero
     'about-hero-label': 'About',
@@ -401,13 +403,15 @@ const T = {
     'contact-hero-sub':   'Partnership inquiries, adoption questions, or just plain curiosity — all welcome.',
 
     // Contact — Form
-    'form-name-label': 'Name / Organization',
-    'form-name-ph':    'Jane Doe / Coding Academy',
+    'form-name-label': 'Name',
+    'form-name-ph':    'Jane Doe',
+    'form-org-label':  'Organization',
+    'form-org-ph':     'Springfield Elementary (optional)',
     'form-email-label': 'Email',
     'form-type-label': 'Inquiry Type',
     'opt-select':   'Please select',
     'opt-personal': 'Individual',
-    'opt-academy':  'Academy · Institution',
+    'opt-academy':  'School · Institution',
     'opt-partner':  'Partnership · Media',
     'form-msg-label': 'Message',
     'form-msg-ph':    'Tell us what\'s on your mind.',
@@ -656,6 +660,7 @@ async function handleSubmit(e) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: form.name.value,
+        org: form.org.value,
         email: form.email.value,
         type: form.type.value,
         message: form.message.value,
