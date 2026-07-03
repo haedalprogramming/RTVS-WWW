@@ -222,6 +222,13 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
 }
 .feature-card:hover { border-color: rgba(59,130,246,.4); transform: translateY(-4px); }
 
+.feature-card.is-highlight {
+  border-color: rgba(34,211,238,.45);
+  background: linear-gradient(180deg, rgba(34,211,238,.07), var(--bg2) 70%);
+}
+.feature-card.is-highlight:hover { border-color: rgba(34,211,238,.7); }
+.feature-card.is-highlight .feature-icon { background: rgba(34,211,238,.15); border-color: rgba(34,211,238,.4); color: var(--cyan); }
+
 .feature-icon {
   width: 48px; height: 48px; border-radius: 12px;
   background: var(--blue-glow); border: 1px solid rgba(59,130,246,.3);
@@ -257,6 +264,8 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
 .step-body { padding: 8px 24px 24px; }
 .step-body h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--cyan); }
 .step-body p { font-size: .875rem; color: var(--text-muted); line-height: 1.65; }
+.step-code { margin-top: 12px; }
+.step-code code { display: inline-block; white-space: normal; line-height: 1.6; }
 
 .step-arrow {
   font-size: 1.5rem; color: var(--border); align-self: center;
@@ -372,6 +381,38 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
 }
 .pilot-text h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
 .pilot-text p { font-size: .875rem; color: var(--text-muted); margin-bottom: 16px; }
+
+/* ─── Guide: Onboarding List ─── */
+.onboard-list { display: flex; flex-direction: column; gap: 14px; }
+.onboard-item {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 20px 24px; border-radius: var(--radius-lg);
+  background: var(--bg3); border: 1px solid var(--border);
+}
+.onboard-num {
+  flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--blue-glow); border: 1px solid rgba(59,130,246,.3);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; color: var(--blue); font-size: .9rem;
+}
+.onboard-item h3 { font-size: .95rem; font-weight: 700; margin-bottom: 4px; }
+.onboard-item p { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ─── Guide: Lesson Cards ─── */
+.lesson-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.lesson-card { padding: 24px; border-radius: var(--radius-lg); background: var(--bg2); border: 1px solid var(--border); }
+.lesson-card-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+.lesson-num { font-size: 1.3rem; font-weight: 900; color: var(--cyan); }
+.lesson-card h3 { font-size: 1rem; font-weight: 700; }
+.lesson-goal { font-size: .85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+.lesson-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.lesson-tag {
+  font-size: .72rem; font-weight: 600; padding: 3px 10px; border-radius: 999px;
+  background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.28); color: var(--blue);
+}
+.lesson-tag.concept { background: rgba(34,211,238,.1); border-color: rgba(34,211,238,.28); color: var(--cyan); }
+.lesson-condition { font-size: .8rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 12px; }
+.lesson-condition strong { color: var(--text); font-weight: 600; }
 
 /* ─── Contact ─── */
 .contact-layout {

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>교사용 매뉴얼 — Code Builder</title>
+  <meta name="description" content="Code Builder 12차시 커리큘럼으로 체험학습·방과후 코딩 수업을 준비하는 교사용 가이드" />
+  <link rel="icon" href="img/Icon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ───────── NAV ───────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="img/Icon.png" alt="Code Builder" />
+      <span>Code Builder</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" data-i18n="nav-home">홈</a></li>
+      <li><a href="about.html" data-i18n="nav-about">About</a></li>
+      <li><a href="guide.html" class="active" data-i18n="nav-guide">매뉴얼</a></li>
+      <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+      <li><a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-nav" data-i18n="nav-play">지금 플레이하기</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ko" onclick="setLang('ko')">KO</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="nav-toggle" aria-label="메뉴 열기" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ───────── PAGE HERO ───────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label" data-i18n="guide-hero-label">Guide</div>
+    <h1 data-i18n="guide-hero-title">선생님을 위한<br /><span class="highlight">체험학습 매뉴얼</span></h1>
+    <p class="page-hero-sub" data-i18n="guide-hero-sub">Code Builder 12차시 커리큘럼으로 코딩 수업을 준비하는 방법</p>
+  </div>
+</section>
+
+<!-- ───────── INTRO ───────── -->
+<section class="section">
+  <div class="container about-grid">
+    <div class="about-text">
+      <div class="section-label" data-i18n="guide-intro-label">가이드</div>
+      <h2 data-i18n="guide-intro-title">Code Builder로<br />코딩 수업을 시작하세요</h2>
+      <p data-i18n="guide-intro-p1">Code Builder는 로블록스 플레이 도중 블록 코딩 창을 열어 에이전트에게 명령을 내리는 인게임 코딩 교육 플랫폼입니다. 별도 프로그램 설치 없이, 학생들은 이미 익숙한 로블록스 화면에서 바로 코딩을 시작할 수 있습니다.</p>
+      <p data-i18n="guide-intro-p2">이 매뉴얼은 초·중등 교사와 코딩 강사가 12차시 커리큘럼을 체험학습·방과후 수업에 활용할 때 참고할 수 있도록 준비물, 진행 방법, 차시별 학습목표를 정리했습니다.</p>
+    </div>
+    <div class="about-visual">
+      <img src="img/Preview_4.png" alt="Code Builder 수업 화면" />
+    </div>
+  </div>
+</section>
+
+<!-- ───────── PREP ───────── -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label" data-i18n="guide-prep-label">수업 준비</div>
+    <h2 class="section-title" data-i18n="guide-prep-title">시작하기 전 준비물</h2>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3 data-i18n="prep1-title">기기</h3>
+        <p data-i18n="prep1-desc">PC(키보드) 또는 모바일 · 태블릿. 학생 1인당 1대, 어려우면 2인 1팀도 가능합니다</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0M8 15.5a6 6 0 0 1 8 0M12 19h.01"/></svg>
+        </div>
+        <h3 data-i18n="prep2-title">인터넷 연결</h3>
+        <p data-i18n="prep2-desc">로블록스 서버 접속을 위한 안정적인 와이파이가 필요합니다</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        </div>
+        <h3 data-i18n="prep3-title">로블록스 계정</h3>
+        <p data-i18n="prep3-desc">학생별 또는 팀별로 미리 로그인해두면 수업 시간을 아낄 수 있습니다</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <h3 data-i18n="prep4-title">플레이 링크 공유</h3>
+        <p data-i18n="prep4-desc">게임 링크를 QR코드나 채팅으로 미리 공유해 접속 시간을 줄이세요</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── ONBOARDING ───────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-label" data-i18n="guide-onboard-label">첫 접속</div>
+    <h2 class="section-title" data-i18n="guide-onboard-title">5단계 온보딩 튜토리얼</h2>
+    <p class="page-hero-sub" style="margin-bottom:32px;" data-i18n="guide-onboard-sub">학생이 처음 접속하면 아래 5단계 카드가 자동으로 표시됩니다. 별도 설명 없이도 따라올 수 있지만, 미리 알아두면 질문에 빠르게 답할 수 있어요.</p>
+    <div class="onboard-list">
+
+      <div class="onboard-item">
+        <div class="onboard-num">1</div>
+        <div>
+          <h3 data-i18n="onboard1-title">코드 빌더에 오신 걸 환영해요!</h3>
+          <p data-i18n="onboard1-desc">블록을 조립해 캐릭터를 움직여 보세요. 캐릭터가 항상 말을 잘 듣지 않을 수 있어요.</p>
+        </div>
+      </div>
+
+      <div class="onboard-item">
+        <div class="onboard-num">2</div>
+        <div>
+          <h3 data-i18n="onboard2-title">열고 닫기</h3>
+          <p data-i18n="onboard2-desc"><kbd>C</kbd> 키(PC) 또는 <strong>&lt;&gt;</strong> 버튼(모바일)으로 코드 빌더를 열고 닫을 수 있어요.</p>
+        </div>
+      </div>
+
+      <div class="onboard-item">
+        <div class="onboard-num">3</div>
+        <div>
+          <h3 data-i18n="onboard3-title">캐릭터 선택</h3>
+          <p data-i18n="onboard3-desc">헤더의 <strong>&lt;</strong> / <strong>&gt;</strong> 버튼으로 조종할 에이전트를 선택하세요.</p>
+        </div>
+      </div>
+
+      <div class="onboard-item">
+        <div class="onboard-num">4</div>
+        <div>
+          <h3 data-i18n="onboard4-title">블록 팔레트</h3>
+          <p data-i18n="onboard4-desc">왼쪽에서 블록을 드래그해 캔버스에 쌓으세요. 탭으로 블록 종류를 바꿀 수 있어요.</p>
+        </div>
+      </div>
+
+      <div class="onboard-item">
+        <div class="onboard-num">5</div>
+        <div>
+          <h3 data-i18n="onboard5-title">실행해 보세요!</h3>
+          <p data-i18n="onboard5-desc">실행 버튼으로 코드를 돌리고, 초기화 버튼으로 에이전트를 원위치로 돌릴 수 있어요.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── BLOCKS ───────── -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label" data-i18n="guide-blocks-label">블록 살펴보기</div>
+    <h2 class="section-title" data-i18n="guide-blocks-title">사용 가능한 블록 7종</h2>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+        <h3 data-i18n="block1-title">앞으로 이동</h3>
+        <p data-i18n="block1-desc">Action · 에이전트를 앞으로 한 칸(8스터드) 이동</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v6h6M20 20a9 9 0 0 0-15-6.7L4 10"/></svg>
+        </div>
+        <h3 data-i18n="block2-title">오른쪽 회전</h3>
+        <p data-i18n="block2-desc">Action · 에이전트를 오른쪽으로 90도 회전</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="3"/><path d="M12 12v9M8 21h8"/></svg>
+        </div>
+        <h3 data-i18n="block3-title">꽃 심기</h3>
+        <p data-i18n="block3-desc">Action · 에이전트가 서 있는 위치에 꽃을 심음</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+        <h3 data-i18n="block4-title">반복</h3>
+        <p data-i18n="block4-desc">Loop · 안에 담긴 블록을 N번 반복 실행 (최대 20회)</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a1.5 1.5 0 0 0 1.3 2.2h16.4a1.5 1.5 0 0 0 1.3-2.2L13.7 3.9a1.5 1.5 0 0 0-2.6 0z"/></svg>
+        </div>
+        <h3 data-i18n="block5-title">장애물이 있으면</h3>
+        <p data-i18n="block5-desc">Conditional · 전방에 장애물이 있을 때만 안의 블록 실행</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3 data-i18n="block6-title">함수 만들기</h3>
+        <p data-i18n="block6-desc">Function · 이름을 붙인 블록 묶음을 정의</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 data-i18n="block7-title">함수 호출</h3>
+        <p data-i18n="block7-desc">Function · 미리 만들어 둔 함수를 실행</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CURRICULUM ───────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-label" data-i18n="guide-curriculum-label">12차시 커리큘럼</div>
+    <h2 class="section-title" data-i18n="guide-curriculum-title">차시별 학습목표 &amp; 진행 조건</h2>
+    <p class="page-hero-sub" style="margin-bottom:32px;" data-i18n="guide-curriculum-note">각 차시는 50분 기준입니다. 학생이 골 타일에 도달하거나 목표 개수의 꽃을 심으면 시스템이 자동으로 다음 차시 맵으로 이동시킵니다 — 교사가 진행을 일일이 체크하지 않아도 됩니다.</p>
+
+    <div class="lesson-grid">
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">01</span><h3 data-i18n="gl1-title">코드빌더 시작하기</h3></div>
+        <p class="lesson-goal" data-i18n="gl1-goal">블록 코드로 캐릭터를 이동시킬 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl1-concept">순차구조</span>
+          <span class="lesson-tag" data-i18n="gl1-blocks">앞으로 이동 · 오른쪽 회전</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl1-cond">진행 조건: <strong>Goal 타일 도달</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">02</span><h3 data-i18n="gl2-title">미로 탈출하기</h3></div>
+        <p class="lesson-goal" data-i18n="gl2-goal">순서에 맞게 블록을 나열하여 미로를 탈출할 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl2-concept">순차 심화</span>
+          <span class="lesson-tag" data-i18n="gl2-blocks">앞으로 이동 · 오른쪽 회전</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl2-cond">진행 조건: <strong>Goal 타일 도달</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">03</span><h3 data-i18n="gl3-title">꽃 한 송이 심기</h3></div>
+        <p class="lesson-goal" data-i18n="gl3-goal">이동과 함께 꽃 심기 블록을 사용할 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl3-concept">꽃 심기 도입</span>
+          <span class="lesson-tag" data-i18n="gl3-blocks">앞으로 이동 · 꽃 심기</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl3-cond">진행 조건: <strong>꽃 1송이 심기</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">04</span><h3 data-i18n="gl4-title">꽃길 만들기</h3></div>
+        <p class="lesson-goal" data-i18n="gl4-goal">이동하면서 꽃을 심어 패턴을 만들 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl4-concept">순차 + 꽃 심기</span>
+          <span class="lesson-tag" data-i18n="gl4-blocks">앞으로 이동 · 꽃 심기</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl4-cond">진행 조건: <strong>꽃 3송이 심기</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">05</span><h3 data-i18n="gl5-title">반복으로 미로 탈출</h3></div>
+        <p class="lesson-goal" data-i18n="gl5-goal">반복 블록으로 같은 동작을 여러 번 실행할 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl5-concept">반복문</span>
+          <span class="lesson-tag" data-i18n="gl5-blocks">반복</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl5-cond">진행 조건: <strong>Goal 타일 도달</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">06</span><h3 data-i18n="gl6-title">반복으로 꽃밭 만들기</h3></div>
+        <p class="lesson-goal" data-i18n="gl6-goal">반복 블록으로 규칙적인 꽃밭을 만들 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl6-concept">반복 + 꽃 심기</span>
+          <span class="lesson-tag" data-i18n="gl6-blocks">반복 · 꽃 심기</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl6-cond">진행 조건: <strong>꽃 5송이 심기</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">07</span><h3 data-i18n="gl7-title">장애물 감지하기</h3></div>
+        <p class="lesson-goal" data-i18n="gl7-goal">조건 블록으로 장애물을 감지하고 행동을 바꿀 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl7-concept">조건문</span>
+          <span class="lesson-tag" data-i18n="gl7-blocks">장애물이 있으면</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl7-cond">진행 조건: <strong>Goal 타일 도달</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">08</span><h3 data-i18n="gl8-title">반복 속 조건</h3></div>
+        <p class="lesson-goal" data-i18n="gl8-goal">반복 안에 조건을 넣어 복잡한 동작을 만들 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl8-concept">반복 + 조건 중첩</span>
+          <span class="lesson-tag" data-i18n="gl8-blocks">반복 · 장애물이 있으면</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl8-cond">진행 조건: <strong>Goal 타일 도달</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">09</span><h3 data-i18n="gl9-title">나만의 함수 만들기</h3></div>
+        <p class="lesson-goal" data-i18n="gl9-goal">함수를 정의하고 호출하여 코드를 재사용할 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl9-concept">함수 정의 · 호출</span>
+          <span class="lesson-tag" data-i18n="gl9-blocks">함수 만들기 · 함수 호출</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl9-cond">진행 조건: <strong>꽃 3송이 심기</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">10</span><h3 data-i18n="gl10-title">함수로 꽃길 만들기</h3></div>
+        <p class="lesson-goal" data-i18n="gl10-goal">함수와 반복 블록을 함께 사용하여 자동으로 꽃길을 만들 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl10-concept">함수 + 반복 응용</span>
+          <span class="lesson-tag" data-i18n="gl10-blocks">함수 · 반복 · 꽃 심기</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl10-cond">진행 조건: <strong>꽃 5송이 심기</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">11</span><h3 data-i18n="gl11-title">함수 여러 개 조합하기</h3></div>
+        <p class="lesson-goal" data-i18n="gl11-goal">여러 함수를 만들고 조합하여 복잡한 동작을 만들 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl11-concept">함수 심화</span>
+          <span class="lesson-tag" data-i18n="gl11-blocks">함수 만들기 · 함수 호출</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl11-cond">진행 조건: <strong>꽃 6송이 심기</strong></p>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-card-head"><span class="lesson-num">12</span><h3 data-i18n="gl12-title">나만의 정원 만들기</h3></div>
+        <p class="lesson-goal" data-i18n="gl12-goal">배운 모든 블록을 활용하여 나만의 정원을 창작할 수 있다</p>
+        <div class="lesson-tags">
+          <span class="lesson-tag concept" data-i18n="gl12-concept">자유 프로젝트</span>
+          <span class="lesson-tag" data-i18n="gl12-blocks">전체 블록</span>
+        </div>
+        <p class="lesson-condition" data-i18n="gl12-cond">진행 조건: <strong>꽃 10송이 심기</strong></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── TIPS ───────── -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-label" data-i18n="guide-tips-label">진행 팁</div>
+    <h2 class="section-title" data-i18n="guide-tips-title">수업이 매끄러워지는 4가지 팁</h2>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 data-i18n="tip1-title">자동 진행 시스템</h3>
+        <p data-i18n="tip1-desc">목표(골 도달 · 꽃 개수)를 달성하면 시스템이 자동으로 다음 차시 맵으로 이동시킵니다. 진행 여부를 따로 체크하지 않아도 됩니다</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3 data-i18n="tip2-title">리더보드로 동기부여</h3>
+        <p data-i18n="tip2-desc">화면 좌측 상단에 차시 진행 순위가 표시됩니다. 서로의 진행 상황을 보며 자연스럽게 동기부여가 됩니다</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+        </div>
+        <h3 data-i18n="tip3-title">초기화 버튼 활용</h3>
+        <p data-i18n="tip3-desc">에이전트가 막히거나 실수했을 때 초기화 버튼으로 위치만 리셋할 수 있어요. 심어둔 꽃은 그대로 유지됩니다</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-4 8-8 9-4-1-8-4-8-9V7l8-4z"/></svg>
+        </div>
+        <h3 data-i18n="tip4-title">안전한 명령 실행</h3>
+        <p data-i18n="tip4-desc">서버가 모든 명령을 검증해 허용된 블록만 실행되므로, 예상치 못한 동작으로부터 안전합니다</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CTA ───────── -->
+<section class="section cta-section">
+  <div class="container cta-inner">
+    <h2 data-i18n="guide-cta-title">체험학습 도입이 궁금하신가요?</h2>
+    <p data-i18n="guide-cta-desc">학교 · 학원 · 기관 단위 체험학습 및 방과후 수업 도입 문의를 받고 있습니다.</p>
+    <div class="cta-actions">
+      <a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-primary" data-i18n="cta-play">▶ 지금 플레이하기</a>
+      <a href="contact.html" class="btn-ghost" data-i18n="cta-contact">문의하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="img/Icon.png" alt="Code Builder" />
+      <span>Code Builder</span>
+    </div>
+    <nav class="footer-nav">
+      <a href="index.html" data-i18n="nav-home">홈</a>
+      <a href="about.html" data-i18n="nav-about">About</a>
+      <a href="guide.html" data-i18n="nav-guide">매뉴얼</a>
+      <a href="contact.html" data-i18n="nav-contact">Contact</a>
+      <a href="https://www.roblox.com/join/1i9yw" target="_blank" data-i18n="footer-play">플레이하기</a>
+    </nav>
+    <div class="footer-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    <div class="container" data-i18n="footer-copy">© 2026 Code Builder (TeamHaedal). All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
