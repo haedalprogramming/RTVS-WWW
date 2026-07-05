@@ -81,6 +81,7 @@ async function handleShareSubmit(e) {
         mimeType: file.type,
         nickname: form.nickname.value,
         message: form.message.value,
+        email: form.email.value,
       }),
     });
     if (!initRes.ok) throw new Error('init failed');
@@ -99,6 +100,8 @@ async function handleShareSubmit(e) {
         fileId,
         nickname: form.nickname.value,
         message: form.message.value,
+        email: form.email.value,
+        lang,
       }),
     });
     if (!notifyRes.ok) throw new Error('notify failed');

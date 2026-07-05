@@ -158,6 +158,8 @@ const T = {
     // Share — Form
     'share-nickname-label': '닉네임',
     'share-nickname-ph':    '로블록스 닉네임 (선택)',
+    'share-email-ph':       'example@gmail.com',
+    'share-email-hint':     '감사 인사를 보내드릴 이메일이에요.',
     'share-video-label':    '영상 파일',
     'share-video-hint':     'MP4, MOV, WebM 등 영상 파일 · 최대 2GB',
     'share-msg-label':      '한 마디',
@@ -481,6 +483,8 @@ const T = {
     // Share — Form
     'share-nickname-label': 'Nickname',
     'share-nickname-ph':    'Your Roblox nickname (optional)',
+    'share-email-ph':       'you@example.com',
+    'share-email-hint':     "We'll send a thank-you note to this address.",
     'share-video-label':    'Video File',
     'share-video-hint':     'MP4, MOV, WebM, etc. · Max 2GB',
     'share-msg-label':      'A Note',

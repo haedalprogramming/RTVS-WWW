@@ -60,7 +60,7 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: 'Server misconfigured' });
   }
 
-  const { fileName, fileSize, mimeType, nickname, message } = req.body || {};
+  const { fileName, fileSize, mimeType, nickname, message, email } = req.body || {};
 
   if (!fileName || typeof fileName !== 'string') {
     return res.status(400).json({ error: 'fileName is required' });
@@ -75,18 +75,22 @@ module.exports = async function handler(req, res) {
   if (!mimeType || typeof mimeType !== 'string' || !ALLOWED_MIME_TYPES.has(mimeType)) {
     return res.status(400).json({ error: 'Unsupported video format' });
   }
+  if (!email || typeof email !== 'string' || email.length > 200) {
+    return res.status(400).json({ error: 'A valid email is required' });
+  }
   if ((nickname && String(nickname).length > 100) || (message && String(message).length > 1000)) {
     return res.status(400).json({ error: 'Input too long' });
   }
 
   const label = sanitizeLabel(nickname || '', 100) || '익명';
   const note = sanitizeLabel(message || '', 1000);
+  const contactEmail = sanitizeLabel(email, 200);
 
   try {
     const folderId = await createSubmissionFolder(submissionFolderName(nickname ? label : ''));
     const uploadUrl = await createResumableSession({
       name: sanitizeFileName(fileName),
-      description: [`업로더: ${label}`, note].filter(Boolean).join('\n').slice(0, 2000),
+      description: [`업로더: ${label}`, `이메일: ${contactEmail}`, note].filter(Boolean).join('\n').slice(0, 2000),
       mimeType,
       size,
       parentFolderId: folderId,
