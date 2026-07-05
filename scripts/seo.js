@@ -61,6 +61,21 @@ const PAGES = {
       keywords: 'Code Builder teaching guide, roblox coding game, roblox coding class, coding field trip, after-school coding',
     },
   },
+  share: {
+    path: 'share.html',
+    ko: {
+      title: '플레이 영상 보내기 | 로블록스 코딩 게임 Code Builder',
+      description:
+        'Code Builder를 플레이하며 찍은 재미있는 영상을 보내주세요. 영상 1개당 최대 2GB까지 업로드할 수 있습니다.',
+      keywords: 'Code Builder 영상 제보, 로블록스 코딩 게임, 플레이 영상 업로드, 구글 드라이브 업로드',
+    },
+    en: {
+      title: 'Share Your Gameplay Video | Code Builder, the Roblox Coding Game',
+      description:
+        'Send us a fun video of you playing Code Builder. Upload up to 2GB per video.',
+      keywords: 'Code Builder video submission, roblox coding game, gameplay video upload, google drive upload',
+    },
+  },
   contact: {
     path: 'contact.html',
     ko: {
