@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--#include:meta-->
+<!--#include:head-->
+</head>
+<body>
+
+<!--#include:nav-->
+
+<!-- ───────── PAGE HERO ───────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label" data-i18n="share-hero-label">Share</div>
+    <h1 data-i18n="share-hero-title">재밌게 플레이한<br /><span class="highlight">영상을 보내주세요</span></h1>
+    <p class="page-hero-sub" data-i18n="share-hero-sub">플레이 영상을 올려주시면 저희 팀이 확인 후 소개해드릴게요. (영상 1개당 최대 2GB)</p>
+  </div>
+</section>
+
+<!-- ───────── FORM ───────── -->
+<section class="section">
+  <div class="container contact-layout">
+
+    <form class="contact-form" id="shareForm" onsubmit="handleShareSubmit(event)">
+      <div class="form-group">
+        <label for="nickname"><span data-i18n="share-nickname-label">닉네임</span></label>
+        <input type="text" id="nickname" name="nickname" data-i18n-ph="share-nickname-ph" placeholder="로블록스 닉네임 (선택)" maxlength="100" />
+      </div>
+
+      <div class="form-group">
+        <label for="video"><span data-i18n="share-video-label">영상 파일</span> <span class="required">*</span></label>
+        <input
+          type="file"
+          id="video"
+          name="video"
+          accept="video/mp4,video/quicktime,video/webm,video/x-matroska,video/x-msvideo,video/mpeg,video/3gpp"
+          required
+        />
+        <p class="form-hint" data-i18n="share-video-hint">MP4, MOV, WebM 등 영상 파일 · 최대 2GB</p>
+      </div>
+
+      <div class="form-group">
+        <label for="message" data-i18n="share-msg-label">한 마디</label>
+        <textarea id="message" name="message" rows="4" data-i18n-ph="share-msg-ph" placeholder="영상에 대해 자유롭게 남겨주세요 (선택)" maxlength="1000"></textarea>
+      </div>
+
+      <div class="upload-progress" id="uploadProgress" hidden>
+        <div class="upload-progress-track"><div class="upload-progress-fill" id="uploadProgressFill"></div></div>
+        <span class="upload-progress-label" id="uploadProgressLabel">0%</span>
+      </div>
+
+      <button type="submit" class="btn-primary btn-full" data-i18n="share-submit">영상 보내기 →</button>
+      <div id="shareStatus" class="form-status" hidden></div>
+    </form>
+
+    <aside class="contact-info">
+      <div class="contact-info-card">
+        <h3 data-i18n="share-info1-title">업로드 안내</h3>
+        <p data-i18n="share-info1-desc">영상은 저희 팀 구글 드라이브로 안전하게 전달되며, 검토 후 SNS나 커뮤니티에 소개될 수 있습니다.</p>
+      </div>
+      <div class="contact-info-card">
+        <h3 data-i18n="info2-title">게임 바로가기</h3>
+        <p data-i18n="info2-desc">지금 바로 로블록스에서 Code Builder를 체험해보세요.</p>
+        <a href="https://www.roblox.com/join/1i9yw" target="_blank" class="btn-primary" style="margin-top:0.75rem;display:inline-block;" data-i18n="info2-play">▶ 플레이하기</a>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!--#include:footer-->
+<script src="js/upload.js"></script>
+</body>
+</html>

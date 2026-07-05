@@ -5,6 +5,7 @@ const T = {
     'nav-home':  '홈',
     'nav-about': '소개',
     'nav-guide': '매뉴얼',
+    'nav-share': '영상 공유',
     'nav-contact': '문의',
     'nav-play':  '지금 플레이하기',
     'footer-play': '플레이하기',
@@ -148,6 +149,29 @@ const T = {
     'info2-title': '게임 바로가기',
     'info2-desc':  '지금 바로 로블록스에서 Code Builder를 체험해보세요.',
     'info2-play':  '▶ 플레이하기',
+
+    // Share — Page Hero
+    'share-hero-label': 'Share',
+    'share-hero-title': '재밌게 플레이한<br /><span class="highlight">영상을 보내주세요</span>',
+    'share-hero-sub':   '플레이 영상을 올려주시면 저희 팀이 확인 후 소개해드릴게요. (영상 1개당 최대 2GB)',
+
+    // Share — Form
+    'share-nickname-label': '닉네임',
+    'share-nickname-ph':    '로블록스 닉네임 (선택)',
+    'share-video-label':    '영상 파일',
+    'share-video-hint':     'MP4, MOV, WebM 등 영상 파일 · 최대 2GB',
+    'share-msg-label':      '한 마디',
+    'share-msg-ph':         '영상에 대해 자유롭게 남겨주세요 (선택)',
+    'share-submit':         '영상 보내기 →',
+    'share-uploading':      '업로드 중…',
+    'share-success':        '감사합니다! 영상이 잘 도착했어요.',
+    'share-error':          '업로드에 실패했어요. 잠시 후 다시 시도해주세요.',
+    'share-error-nofile':   '영상 파일을 선택해주세요.',
+    'share-error-toolarge': '영상은 2GB 이하만 업로드할 수 있어요.',
+
+    // Share — Info
+    'share-info1-title': '업로드 안내',
+    'share-info1-desc':  '영상은 저희 팀 구글 드라이브로 안전하게 전달되며, 검토 후 SNS나 커뮤니티에 소개될 수 있습니다.',
 
     // Guide — Hero
     'guide-hero-label': 'Guide',
@@ -304,6 +328,7 @@ const T = {
     'nav-home':    'Home',
     'nav-about':   'About',
     'nav-guide':   'Guide',
+    'nav-share':   'Share a Video',
     'nav-contact': 'Contact',
     'nav-play':    'Play Now',
     'footer-play': 'Play',
@@ -447,6 +472,29 @@ const T = {
     'info2-title': 'Play the Game',
     'info2-desc':  'Experience Code Builder on Roblox right now.',
     'info2-play':  '▶ Play Now',
+
+    // Share — Page Hero
+    'share-hero-label': 'Share',
+    'share-hero-title': 'Send Us Your<br /><span class="highlight">Best Gameplay Clips</span>',
+    'share-hero-sub':   "Upload a video of you playing and we'll check it out — it might get featured. (Max 2GB per video)",
+
+    // Share — Form
+    'share-nickname-label': 'Nickname',
+    'share-nickname-ph':    'Your Roblox nickname (optional)',
+    'share-video-label':    'Video File',
+    'share-video-hint':     'MP4, MOV, WebM, etc. · Max 2GB',
+    'share-msg-label':      'A Note',
+    'share-msg-ph':         "Tell us about the video (optional)",
+    'share-submit':         'Send Video →',
+    'share-uploading':      'Uploading…',
+    'share-success':        "Thanks! Your video made it through.",
+    'share-error':          'Upload failed. Please try again shortly.',
+    'share-error-nofile':   'Please choose a video file.',
+    'share-error-toolarge': 'Videos must be 2GB or smaller.',
+
+    // Share — Info
+    'share-info1-title': 'Upload Info',
+    'share-info1-desc':  "Videos are sent securely to our team's Google Drive and may be featured on social media or in our community afterward.",
 
     // Guide — Hero
     'guide-hero-label': 'Guide',
