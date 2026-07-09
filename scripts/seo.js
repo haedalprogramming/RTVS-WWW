@@ -76,6 +76,25 @@ const PAGES = {
       keywords: 'Code Builder video submission, roblox coding game, gameplay video upload, google drive upload',
     },
   },
+  popup: {
+    path: 'popup.html',
+    ko: {
+      title: '동성로 놀장 로블록스 코딩 팝업 | Code Builder',
+      description:
+        '7.11(토)-7.12(일) 동성로 CGV한일 앞, 10분 만에 나만의 로블록스 게임을 만드는 블록코딩 체험 팝업. 준비물 없이 누구나 참여 가능.',
+      keywords: '동성로 팝업, 로블록스 코딩 체험, 어린이 코딩 체험, 대구 코딩 팝업, 동성로 놀장, Code Builder',
+      ogTitle: '동성로 놀장 로블록스 코딩 팝업 — 내 손으로 만드는 나만의 로블록스 게임',
+      ogDescription: '7.11(토)-7.12(일) 동성로 CGV한일 앞에서 10분 코딩 체험을 해보세요. 사전예약 없이 현장 방문.',
+    },
+    en: {
+      title: '동성로 놀장 로블록스 코딩 팝업 | Code Builder',
+      description:
+        '7.11(토)-7.12(일) 동성로 CGV한일 앞, 10분 만에 나만의 로블록스 게임을 만드는 블록코딩 체험 팝업. 준비물 없이 누구나 참여 가능.',
+      keywords: '동성로 팝업, 로블록스 코딩 체험, 어린이 코딩 체험, 대구 코딩 팝업, 동성로 놀장, Code Builder',
+      ogTitle: '동성로 놀장 로블록스 코딩 팝업 — 내 손으로 만드는 나만의 로블록스 게임',
+      ogDescription: '7.11(토)-7.12(일) 동성로 CGV한일 앞에서 10분 코딩 체험을 해보세요. 사전예약 없이 현장 방문.',
+    },
+  },
   contact: {
     path: 'contact.html',
     ko: {
