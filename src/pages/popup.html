@@ -15,10 +15,9 @@
     .popup-location-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; }
     .popup-map-placeholder {
       aspect-ratio: 4/3; border-radius: var(--radius-lg);
-      background: var(--bg3); border: 1px dashed var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-muted); font-size: .9rem; text-align: center;
+      overflow: hidden; border: 1px solid var(--border);
     }
+    .popup-map-placeholder img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .popup-location-text p { color: var(--text-muted); margin-bottom: 14px; line-height: 1.7; }
     .popup-location-text strong { color: var(--text); }
 
@@ -185,7 +184,9 @@
     <div class="section-label">위치 및 오시는 길</div>
     <h2 class="section-title">동성로 CGV한일 앞</h2>
     <div class="popup-location-grid">
-      <div class="popup-map-placeholder">지도 업데이트 예정</div>
+      <div class="popup-map-placeholder">
+        <img src="img/map.png" alt="동성로 CGV한일 앞 위치 지도" />
+      </div>
       <div class="popup-location-text">
         <p><strong>장소</strong><br />동성로 CGV한일 앞 (동성로 축제 A구역)</p>
         <p><strong>랜드마크</strong><br />CGV한일, 다이소, 올리브영, SPAO 인근</p>
@@ -202,30 +203,6 @@
     <div class="section-label" style="text-align: center;">문의</div>
     <h2 class="section-title centered">전화로 편하게 문의하세요</h2>
     <a class="btn-primary" href="tel:0507-1497-2515">📞 0507-1497-2515</a>
-  </div>
-</section>
-
-<!-- ───────── 체험 후 안내 ───────── -->
-<section class="section" id="after">
-  <div class="container" style="max-width: 720px; text-align: center;">
-    <div class="section-label" style="text-align: center;">체험 후 안내</div>
-    <h2 class="section-title centered">여러분의 아이디어가<br />새로운 로블록스 게임이 됩니다</h2>
-    <p style="color: var(--text-muted); margin-bottom: 28px;">
-      체험 후 QR로 오늘 플레이한 맵을 친구들과 플레이하고, 영상을 찍어 공유해주세요!
-    </p>
-    <a class="btn-primary" href="https://roblox.code-builder.kr/share.html" target="_blank">영상 공유하기 →</a>
-  </div>
-</section>
-
-<!-- ───────── 소셜 & 팔로우 ───────── -->
-<section class="section section-dark" id="social">
-  <div class="container" style="text-align: center;">
-    <div class="section-label" style="text-align: center;">소셜 & 팔로우</div>
-    <h2 class="section-title centered">더 많은 플레이 영상 보러가기</h2>
-    <div class="cta-actions">
-      <a class="btn-ghost" href="https://www.youtube.com/@RobloxCodeBuilder" target="_blank">▶ YouTube</a>
-      <a class="btn-ghost" href="https://www.tiktok.com/@robloxcodebuilder" target="_blank">🎵 TikTok</a>
-    </div>
   </div>
 </section>
 
