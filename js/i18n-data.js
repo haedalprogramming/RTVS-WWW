@@ -61,6 +61,10 @@ const T = {
     'step3-title': '실행 — 게임 속에서 확인',
     'step3-desc':  '▶ 실행 버튼을 누르면 에이전트가 즉시 움직입니다. 결과를 보고 코드를 수정하며 배워나갑니다.',
 
+    // Home — Streamers
+    'streamers-label': '스트리머 플레이 영상',
+    'streamers-title': '스트리머들도<br />직접 플레이했습니다',
+
     // Home — World
     'world-label': '게임 세계관',
     'world-title': '코드가 세상을 움직인다',
@@ -385,6 +389,10 @@ const T = {
     'step2-example': 'Move Forward → (Move Forward × Turn Right) repeat 3 times',
     'step3-title': 'Run — See It in the Game',
     'step3-desc':  'Press ▶ Run and the agent moves immediately. Watch the result, tweak your code, and learn as you go.',
+
+    // Home — Streamers
+    'streamers-label': 'Streamer Gameplay',
+    'streamers-title': 'Streamers Have<br />Played It Too',
 
     // Home — World
     'world-label': 'Game World',
