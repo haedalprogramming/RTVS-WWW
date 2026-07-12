@@ -1,11 +1,36 @@
-// ─── Roblox Forge — export spike (M0, issue #15, done) + prompt-driven
-// wand assembly (M1, issue #16). T is defined in js/i18n-data.js (loaded
-// before this module).
+// ─── Roblox Forge — three concepts from the issue #13 prototype plan:
+// 마법 지팡이 (wand), 숄더 펫 (pet), 커스텀 방패 (shield). Each concept module
+// exports build*FromPrompt(prompt) -> { group, labels }. T is defined in
+// js/i18n-data.js (loaded before this module).
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
-import { buildWandFromPrompt, disposeWandGroup } from './forge-wand.js';
+import { disposeGroup, mergeToSingleMesh } from './forge-shared.js';
+import { buildWandFromPrompt } from './forge-wand.js';
+import { buildPetFromPrompt } from './forge-pet.js';
+import { buildShieldFromPrompt } from './forge-shield.js';
+
+const CONCEPTS = {
+  wand: {
+    build: buildWandFromPrompt,
+    filePrefix: 'wand',
+    phKey: 'forge-prompt-ph-wand',
+    hintKey: 'forge-prompt-hint-wand',
+  },
+  pet: {
+    build: buildPetFromPrompt,
+    filePrefix: 'pet',
+    phKey: 'forge-prompt-ph-pet',
+    hintKey: 'forge-prompt-hint-pet',
+  },
+  shield: {
+    build: buildShieldFromPrompt,
+    filePrefix: 'shield',
+    phKey: 'forge-prompt-ph-shield',
+    hintKey: 'forge-prompt-hint-shield',
+  },
+};
 
 function t(lang, key, fallback) {
   return (T[lang] && T[lang][key]) || fallback;
@@ -22,9 +47,9 @@ function initScene(canvas) {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   const controls = new OrbitControls(camera, renderer.domElement);
-  controls.target.set(0, 0.4, 0);
+  controls.target.set(0, 0.2, 0);
   controls.enableDamping = true;
-  controls.minDistance = 1.8;
+  controls.minDistance = 1.4;
   controls.maxDistance = 6;
 
   scene.add(new THREE.HemisphereLight(0xffffff, 0x22232f, 1.1));
@@ -34,10 +59,10 @@ function initScene(canvas) {
 
   let current = null;
 
-  function setWand(group) {
+  function setModel(group) {
     if (current) {
       scene.remove(current);
-      disposeWandGroup(current);
+      disposeGroup(current);
     }
     current = group;
     scene.add(current);
@@ -68,8 +93,8 @@ function initScene(canvas) {
   animate();
 
   return {
-    setWand,
-    getWand: () => current,
+    setModel,
+    getModel: () => current,
   };
 }
 
@@ -95,23 +120,14 @@ function exportGlb(object3d, filename) {
   );
 }
 
-function traitLabels(traits) {
-  const parts = [];
-  if (traits.colorLabel) parts.push(traits.colorLabel);
-  if (traits.materialMatch) parts.push(traits.materialMatch.label);
-  if (traits.tipMatch) parts.push(traits.tipMatch.label);
-  return parts;
+function describeLabels(lang, labels) {
+  if (!labels.length) return t(lang, 'forge-matched-none', '키워드를 못 찾아서 기본 모양으로 만들었어요.');
+  return `${t(lang, 'forge-matched-prefix', '인식된 키워드')}: ${labels.join(', ')}`;
 }
 
-function describeTraits(lang, traits) {
-  const parts = traitLabels(traits);
-  if (!parts.length) return t(lang, 'forge-matched-none', '색상/재질/모양 키워드를 못 찾아서 기본 보석 지팡이로 만들었어요.');
-  return `${t(lang, 'forge-matched-prefix', '인식된 키워드')}: ${parts.join(', ')}`;
-}
-
-function fileNameFor(traits) {
-  const parts = traitLabels(traits);
-  return `code-builder-forge-${parts.length ? parts.join('-') : 'wand'}.glb`;
+function fileNameFor(filePrefix, labels) {
+  const suffix = labels.length ? labels.join('-') : filePrefix;
+  return `code-builder-forge-${filePrefix}-${suffix}.glb`;
 }
 
 function main() {
@@ -120,23 +136,47 @@ function main() {
   const form = document.getElementById('forgeForm');
   const promptInput = document.getElementById('forgePrompt');
   const status = document.getElementById('forgeStatus');
+  const tabs = document.querySelectorAll('.forge-concept-tab');
   if (!canvas || !exportBtn || !form || !promptInput) return;
 
   const scene = initScene(canvas);
-  let currentTraits = null;
+  let currentLabels = [];
+  let currentConceptKey = 'wand';
+
+  function applyConceptText() {
+    const lang = document.documentElement.lang || 'ko';
+    const concept = CONCEPTS[currentConceptKey];
+    promptInput.placeholder = t(lang, concept.phKey, '');
+    const hintEl = document.getElementById('forgePromptHint');
+    if (hintEl) hintEl.textContent = t(lang, concept.hintKey, '');
+  }
 
   function generate(prompt) {
     const lang = document.documentElement.lang || 'ko';
-    const { group, traits } = buildWandFromPrompt(prompt);
-    scene.setWand(group);
-    currentTraits = traits;
+    const { group, labels } = CONCEPTS[currentConceptKey].build(prompt);
+    scene.setModel(group);
+    currentLabels = labels;
     if (status) {
       status.hidden = false;
       status.className = 'form-status success';
-      status.textContent = describeTraits(lang, traits);
+      status.textContent = describeLabels(lang, labels);
     }
   }
 
+  function switchConcept(key) {
+    if (!CONCEPTS[key] || key === currentConceptKey) return;
+    currentConceptKey = key;
+    tabs.forEach((tab) => tab.classList.toggle('active', tab.dataset.concept === key));
+    promptInput.value = '';
+    applyConceptText();
+    generate('');
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => switchConcept(tab.dataset.concept));
+  });
+
+  applyConceptText();
   generate('');
 
   form.addEventListener('submit', (e) => {
@@ -145,8 +185,14 @@ function main() {
   });
 
   exportBtn.addEventListener('click', () => {
-    const wand = scene.getWand();
-    if (wand) exportGlb(wand, fileNameFor(currentTraits || {}));
+    const model = scene.getModel();
+    if (!model) return;
+    // Bake down to a single MeshPart named "Handle" — Roblox's Accessory
+    // Fitting Tool / Tool workflow needs one BasePart selected, not a Model
+    // group of several separately-colored parts.
+    const merged = mergeToSingleMesh(model, 'Handle');
+    exportGlb(merged, fileNameFor(CONCEPTS[currentConceptKey].filePrefix, currentLabels));
+    disposeGroup(merged);
   });
 }
 
