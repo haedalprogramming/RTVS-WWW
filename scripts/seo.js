@@ -113,17 +113,17 @@ const PAGES = {
   forge: {
     path: 'forge.html',
     ko: {
-      title: '로블록스 대장간 (프로토타입) | 로블록스 코딩 게임 Code Builder',
+      title: '로블록스 대장간 | 로블록스 코딩 게임 Code Builder',
       description:
-        'Three.js로 만든 3D 아이템을 로블록스 스튜디오에 업로드 가능한 파일로 내보내는 Code Builder의 로블록스 대장간 프로토타입입니다.',
+        'Three.js로 만든 3D 아이템을 로블록스 스튜디오에 업로드 가능한 파일로 내보내는 Code Builder의 로블록스 대장간입니다.',
       keywords: 'Code Builder 로블록스 대장간, 로블록스 코딩 게임, 로블록스 아이템 제작, glb 내보내기, 로블록스 커스터마이징',
       ogTitle: '로블록스 대장간 — 내가 만든 3D 아이템을 로블록스로',
       ogDescription: 'Three.js로 만든 아이템을 돌려보고 실제 로블록스 스튜디오에서 쓸 수 있는 파일로 내보내보세요.',
     },
     en: {
-      title: 'Roblox Forge (Prototype) | Code Builder, the Roblox Coding Game',
+      title: 'Roblox Forge | Code Builder, the Roblox Coding Game',
       description:
-        'Export a Three.js-built 3D item as a file you can bring into Roblox Studio — a Code Builder prototype.',
+        'Export a Three.js-built 3D item as a file you can bring into Roblox Studio.',
       keywords: 'Code Builder Roblox Forge, roblox coding game, roblox item creation, glb export, roblox customization',
       ogTitle: 'Roblox Forge — Bring your 3D item into Roblox',
       ogDescription: 'Spin your Three.js item around, then export it as a file ready for Roblox Studio.',

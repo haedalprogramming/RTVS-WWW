@@ -14,8 +14,8 @@
 <section class="page-hero">
   <div class="container">
     <div class="section-label" data-i18n="forge-hero-label">Roblox Forge</div>
-    <h1 data-i18n="forge-hero-title">로블록스 대장간<br /><span class="highlight">프롬프트로 마법 지팡이 만들기</span></h1>
-    <p class="page-hero-sub" data-i18n="forge-hero-sub">색상·재질·모양 키워드를 글로 적으면 즉시 3D 지팡이로 조립돼요. AI 호출 없이 브라우저에서 바로 만들어지고, 로블록스 스튜디오에 바로 가져갈 수 있는 파일로 내보낼 수 있어요. (프로토타입)</p>
+    <h1 data-i18n="forge-hero-title">로블록스 대장간<br /><span class="highlight">프롬프트로 로블록스 아이템 만들기</span></h1>
+    <p class="page-hero-sub" data-i18n="forge-hero-sub">색상·재질·모양 키워드를 글로 적으면 즉시 3D 아이템으로 조립돼요. AI 호출 없이 브라우저에서 바로 만들어지고, 로블록스 스튜디오에 바로 가져갈 수 있는 파일로 내보낼 수 있어요.</p>
   </div>
 </section>
 
@@ -24,20 +24,26 @@
   <div class="container agentlab-layout">
 
     <form class="contact-form" id="forgeForm">
+      <div class="forge-tabs" role="tablist">
+        <button type="button" class="forge-concept-tab active" data-concept="wand" data-i18n="forge-concept-wand">🪄 마법 지팡이</button>
+        <button type="button" class="forge-concept-tab" data-concept="pet" data-i18n="forge-concept-pet">🐾 숄더 펫</button>
+        <button type="button" class="forge-concept-tab" data-concept="shield" data-i18n="forge-concept-shield">🛡️ 커스텀 방패</button>
+      </div>
+
       <div class="form-group">
-        <label for="forgePrompt"><span data-i18n="forge-prompt-label">어떤 지팡이를 만들고 싶나요?</span></label>
+        <label for="forgePrompt"><span data-i18n="forge-prompt-label">무엇을 만들고 싶나요?</span></label>
         <textarea
           id="forgePrompt"
           name="prompt"
           rows="4"
           maxlength="200"
-          data-i18n-ph="forge-prompt-ph"
+          data-i18n-ph="forge-prompt-ph-wand"
           placeholder="예: 불타는 별 지팡이, 나무로 만든 하트 지팡이, 금색 초승달 지팡이"
         ></textarea>
-        <p class="form-hint" data-i18n="forge-prompt-hint">색상 · 재질(불/얼음/금속/나무/어둠) · 모양(별/하트/달/보석) 키워드를 인식해요. AI 없이 규칙 매칭이라 결과가 정확히 예측 가능해요.</p>
+        <p class="form-hint" id="forgePromptHint" data-i18n="forge-prompt-hint-wand">색상 · 재질(불/나무/어둠/얼음/금속) · 모양(별/하트/달/보석) 키워드를 인식해요. AI 없이 규칙 매칭이라 결과가 정확히 예측 가능해요.</p>
       </div>
 
-      <button type="submit" class="btn-primary btn-full" data-i18n="forge-build">🔨 지팡이 만들기</button>
+      <button type="submit" class="btn-primary btn-full" data-i18n="forge-build">🔨 만들기</button>
       <div id="forgeStatus" class="form-status" hidden></div>
     </form>
 

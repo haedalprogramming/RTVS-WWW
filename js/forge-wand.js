@@ -1,25 +1,12 @@
-// ─── Roblox Forge — M1 keyword -> geometry logic (issue #16) ──────────────
+// ─── Roblox Forge — 마법 지팡이 concept (issue #16) ─────────────────────────
 // No AI: plain substring matching against small Korean/English keyword
 // tables, then three.js primitive/shape geometry picked accordingly. Only
 // the "ornament" (the part sitting above the cone collar) reacts to
-// keywords — the handle and collar keep the wand's silhouette consistent.
+// color/material/shape keywords — the handle and collar keep the wand's
+// silhouette consistent.
 
 import * as THREE from 'three';
-
-const COLOR_KEYWORDS = [
-  { keys: ['빨간', '빨강', '레드', 'red'], hex: 0xff3b30 },
-  { keys: ['파란', '파랑', '블루', 'blue'], hex: 0x2f6fed },
-  { keys: ['초록', '녹색', '그린', 'green'], hex: 0x2ecc71 },
-  { keys: ['노란', '노랑', '옐로', 'yellow'], hex: 0xf5c518 },
-  { keys: ['보라', '퍼플', 'purple'], hex: 0x9b59b6 },
-  { keys: ['분홍', '핑크', 'pink'], hex: 0xff6fae },
-  { keys: ['주황', '오렌지', 'orange'], hex: 0xff8c32 },
-  { keys: ['검은', '검정', '블랙', 'black'], hex: 0x1c1c1e },
-  { keys: ['하얀', '흰', '화이트', 'white'], hex: 0xf2f2f2 },
-  { keys: ['금색', '골드', 'gold'], hex: 0xd4af37 },
-  { keys: ['은색', '실버', 'silver'], hex: 0xc0c0c0 },
-];
-const DEFAULT_COLOR_HEX = 0x3fd0ff;
+import { COLOR_KEYWORDS, DEFAULT_COLOR_HEX, matchFirst, makeSolidTexture } from './forge-shared.js';
 
 const MATERIAL_KEYWORDS = [
   {
@@ -131,46 +118,13 @@ const TIP_KEYWORDS = [
 ];
 const DEFAULT_TIP_BUILD = () => new THREE.OctahedronGeometry(0.16, 0);
 
-function matchFirst(text, table) {
-  return table.find((entry) => entry.keys.some((k) => text.includes(k))) || null;
-}
-
-// Roblox's MeshPart import ignores a flat PBR baseColorFactor with no
-// texture — it only picks up color from an actual image map. So every part
-// gets its color baked into a tiny solid-fill canvas texture instead of a
-// bare material.color, even though that's redundant for the in-browser
-// three.js preview itself.
-function makeSolidTexture(hex) {
-  const size = 8;
-  const canvas = document.createElement('canvas');
-  canvas.width = size;
-  canvas.height = size;
-  const ctx = canvas.getContext('2d');
-  ctx.fillStyle = `#${hex.toString(16).padStart(6, '0')}`;
-  ctx.fillRect(0, 0, size, size);
-  const texture = new THREE.CanvasTexture(canvas);
-  texture.colorSpace = THREE.SRGBColorSpace;
-  return texture;
-}
-
-// Parses a free-text prompt into { colorHex, materialMatch, tipMatch } — all
-// three are independently optional, so "반짝이는 별 지팡이" (no color/material
-// keyword) still resolves to a valid, if default-colored, wand.
-export function extractWandTraits(prompt) {
+export function buildWandFromPrompt(prompt) {
   const text = (prompt || '').toLowerCase();
   const colorMatch = matchFirst(text, COLOR_KEYWORDS);
   const materialMatch = matchFirst(text, MATERIAL_KEYWORDS);
   const tipMatch = matchFirst(text, TIP_KEYWORDS);
-  return {
-    colorHex: colorMatch ? colorMatch.hex : DEFAULT_COLOR_HEX,
-    colorLabel: colorMatch ? colorMatch.keys[0] : null,
-    materialMatch,
-    tipMatch,
-  };
-}
+  const colorHex = colorMatch ? colorMatch.hex : DEFAULT_COLOR_HEX;
 
-export function buildWandFromPrompt(prompt) {
-  const traits = extractWandTraits(prompt);
   const group = new THREE.Group();
   group.name = 'ForgeWand';
 
@@ -188,25 +142,17 @@ export function buildWandFromPrompt(prompt) {
   collar.position.y = 0.7;
   group.add(collar);
 
-  const ornamentGeo = traits.tipMatch ? traits.tipMatch.build() : DEFAULT_TIP_BUILD();
-  const ornamentMat = new THREE.MeshStandardMaterial({ map: makeSolidTexture(traits.colorHex) });
-  (traits.materialMatch ? traits.materialMatch.apply : DEFAULT_MATERIAL_APPLY)(ornamentMat, traits.colorHex);
+  const ornamentGeo = tipMatch ? tipMatch.build() : DEFAULT_TIP_BUILD();
+  const ornamentMat = new THREE.MeshStandardMaterial({ map: makeSolidTexture(colorHex) });
+  (materialMatch ? materialMatch.apply : DEFAULT_MATERIAL_APPLY)(ornamentMat, colorHex);
   const ornament = new THREE.Mesh(ornamentGeo, ornamentMat);
   ornament.position.y = 1.0;
   group.add(ornament);
 
-  return { group, traits };
-}
+  const labels = [];
+  if (colorMatch) labels.push(colorMatch.keys[0]);
+  if (materialMatch) labels.push(materialMatch.label);
+  if (tipMatch) labels.push(tipMatch.label);
 
-export function disposeWandGroup(group) {
-  group.traverse((node) => {
-    if (node.isMesh) {
-      node.geometry.dispose();
-      const materials = Array.isArray(node.material) ? node.material : [node.material];
-      materials.forEach((m) => {
-        if (m.map) m.map.dispose();
-        m.dispose();
-      });
-    }
-  });
+  return { group, labels };
 }
