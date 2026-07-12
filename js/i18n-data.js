@@ -5,6 +5,7 @@ const T = {
     'nav-home':  '홈',
     'nav-about': '소개',
     'nav-guide': '매뉴얼',
+    'nav-forge': '로블록스 대장간',
     'nav-share': '영상 공유',
     'nav-contact': '문의',
     'nav-play':  '지금 플레이하기',
@@ -179,6 +180,19 @@ const T = {
     'share-info1-title': '업로드 안내',
     'share-info1-desc':  '영상은 저희 팀 구글 드라이브로 안전하게 전달되며, 검토 후 SNS나 커뮤니티에 소개될 수 있습니다.',
 
+    // Roblox Forge (issue #15 done, #16 keyword->geometry)
+    'forge-hero-label': 'Roblox Forge',
+    'forge-hero-title': '로블록스 대장간<br /><span class="highlight">프롬프트로 마법 지팡이 만들기</span>',
+    'forge-hero-sub':   '색상·재질·모양 키워드를 글로 적으면 즉시 3D 지팡이로 조립돼요. AI 호출 없이 브라우저에서 바로 만들어지고, 로블록스 스튜디오에 바로 가져갈 수 있는 파일로 내보낼 수 있어요. (프로토타입)',
+    'forge-prompt-label': '어떤 지팡이를 만들고 싶나요?',
+    'forge-prompt-ph':    '예: 불타는 별 지팡이, 나무로 만든 하트 지팡이, 금색 초승달 지팡이',
+    'forge-prompt-hint':  '색상 · 재질(불/나무/어둠/얼음/금속) · 모양(별/하트/달/보석) 키워드를 인식해요. AI 없이 규칙 매칭이라 결과가 정확히 예측 가능해요.',
+    'forge-build':        '🔨 지팡이 만들기',
+    'forge-export': '⬇ 내보내기 (.glb)',
+    'forge-export-hint': '내보낸 .glb 파일은 Roblox Studio의 3D 가져오기(Import 3D)에서 바로 불러올 수 있어요.',
+    'forge-matched-prefix': '인식된 키워드',
+    'forge-matched-none': '색상/재질/모양 키워드를 못 찾아서 기본 보석 지팡이로 만들었어요.',
+
     // Guide — Hero
     'guide-hero-label': 'Guide',
     'guide-hero-title': '선생님을 위한<br /><span class="highlight">체험학습 매뉴얼</span>',
@@ -334,6 +348,7 @@ const T = {
     'nav-home':    'Home',
     'nav-about':   'About',
     'nav-guide':   'Guide',
+    'nav-forge':   'Roblox Forge',
     'nav-share':   'Share a Video',
     'nav-contact': 'Contact',
     'nav-play':    'Play Now',
@@ -507,6 +522,19 @@ const T = {
     // Share — Info
     'share-info1-title': 'Upload Info',
     'share-info1-desc':  "Videos are sent securely to our team's Google Drive and may be featured on social media or in our community afterward.",
+
+    // Roblox Forge (issue #15 done, #16 keyword->geometry)
+    'forge-hero-label': 'Roblox Forge',
+    'forge-hero-title': 'Roblox Forge<br /><span class="highlight">Build a Magic Wand From a Prompt</span>',
+    'forge-hero-sub':   "Describe a color, material, and shape and it assembles into a 3D wand instantly — no AI call, right in your browser — then export it as a file ready for Roblox Studio.",
+    'forge-prompt-label': 'What kind of wand do you want?',
+    'forge-prompt-ph':    'e.g. a flaming star wand, a wooden heart wand, a gold crescent-moon wand',
+    'forge-prompt-hint':  'Recognizes color, material (fire/wood/dark/ice/metal), and shape (star/heart/moon/gem) keywords — plain rule matching, no AI, so results are exactly predictable.',
+    'forge-build':        '🔨 Build Wand',
+    'forge-export': '⬇ Export (.glb)',
+    'forge-export-hint': 'The exported .glb file can be imported directly via Roblox Studio\'s 3D Import.',
+    'forge-matched-prefix': 'Matched keywords',
+    'forge-matched-none': "Couldn't find a color/material/shape keyword, so this defaulted to a plain gem wand.",
 
     // Guide — Hero
     'guide-hero-label': 'Guide',

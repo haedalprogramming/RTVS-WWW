@@ -101,7 +101,7 @@ function renderLangSwitch(pageKey, lang) {
 
 function renderNav(pageKey, lang) {
   return readPartial('nav')
-    .replace(/\{\{active:(\w+)\}\}/g, (_, key) => (key === pageKey ? 'active' : ''))
+    .replace(/\{\{active:([\w-]+)\}\}/g, (_, key) => (key === pageKey ? 'active' : ''))
     .replace(/ class=""/g, '')
     .replace('<!--#langswitch-->', renderLangSwitch(pageKey, lang));
 }
