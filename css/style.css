@@ -484,6 +484,18 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
 }
 .contact-email:hover { text-decoration: underline; }
 
+/* ─── Form + 3D preview layout (Roblox Forge) ─── */
+.agentlab-layout {
+  display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: start;
+}
+.agentlab-preview { display: flex; flex-direction: column; gap: 16px; }
+.agentlab-canvas-wrap {
+  aspect-ratio: 1 / 1; border-radius: var(--radius-lg);
+  background: var(--bg2); border: 1px solid var(--border);
+  overflow: hidden;
+}
+.agentlab-canvas-wrap canvas { width: 100%; height: 100%; display: block; touch-action: none; }
+
 /* ─── Responsive ─── */
 @media (min-width: 900px) { .br-desktop { display: inline; } }
 
@@ -491,6 +503,8 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-visual { order: -1; }
   .contact-layout { grid-template-columns: 1fr; }
+  .agentlab-layout { grid-template-columns: 1fr; }
+  .agentlab-preview { order: -1; }
   .step-arrow { display: none; }
   .steps-row { flex-direction: column; }
   .step { min-width: 0; }
