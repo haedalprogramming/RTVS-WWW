@@ -307,6 +307,13 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
 .cta-inner p { color: var(--text-muted); margin-bottom: 32px; font-size: 1.05rem; }
 .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
+/* ─── Legal (Privacy / Terms) ─── */
+.legal-body { max-width: 760px; }
+.legal-body > p:first-child { color: var(--text-muted); margin-bottom: 32px; }
+.legal-body h2 { font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; }
+.legal-body p { color: var(--text-muted); line-height: 1.75; margin-bottom: 8px; }
+.legal-body .legal-effective { margin-top: 40px; font-size: .9rem; color: var(--text-muted); }
+
 /* ─── Footer ─── */
 .footer { border-top: 1px solid var(--border); padding-top: 48px; }
 .footer-inner {
