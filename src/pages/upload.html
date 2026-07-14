@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+<!--#include:meta-->
+<!--#include:head-->
+</head>
+<body>
+
+<!--#include:nav-->
+
+<!-- ───────── PAGE HERO ───────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">Internal</div>
+    <h1>쇼츠 업로드</h1>
+  </div>
+</section>
+
+<!-- ───────── AUTH GATE ───────── -->
+<section class="section">
+  <div class="container auth-card">
+
+    <form class="contact-form" id="authForm">
+      <div class="form-group">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" required autofocus />
+      </div>
+      <button type="submit" class="btn-primary btn-full">입장하기 →</button>
+      <div id="authStatus" class="form-status" hidden></div>
+    </form>
+
+    <div id="authedView" hidden>
+      <p>인증 완료. 업로드 폼은 준비 중입니다.</p>
+    </div>
+
+  </div>
+</section>
+
+<!--#include:footer-->
+<script src="js/upload-auth.js"></script>
+</body>
+</html>

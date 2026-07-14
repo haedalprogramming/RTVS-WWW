@@ -307,6 +307,9 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
 .cta-inner p { color: var(--text-muted); margin-bottom: 32px; font-size: 1.05rem; }
 .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
+/* ─── Internal Upload Tool ─── */
+.auth-card { max-width: 360px; }
+
 /* ─── Legal (Privacy / Terms) ─── */
 .legal-body { max-width: 760px; }
 .legal-body > p:first-child { color: var(--text-muted); margin-bottom: 32px; }

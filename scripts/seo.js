@@ -155,6 +155,19 @@ const PAGES = {
       keywords: 'Code Builder terms of service',
     },
   },
+  upload: {
+    path: 'upload.html',
+    ko: {
+      title: '쇼츠 업로드 | Code Builder',
+      description: '내부 전용 쇼츠 업로드 도구입니다.',
+      keywords: 'Code Builder 쇼츠 업로드',
+    },
+    en: {
+      title: 'Shorts Upload | Code Builder',
+      description: 'Internal Shorts upload tool.',
+      keywords: 'Code Builder shorts upload',
+    },
+  },
 };
 
 module.exports = { SITE_URL, SITE_NAME, OG_IMAGE, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT, PAGES };
