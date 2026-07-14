@@ -129,6 +129,32 @@ const PAGES = {
       ogDescription: 'Spin your Three.js item around, then export it as a file ready for Roblox Studio.',
     },
   },
+  privacy: {
+    path: 'privacy.html',
+    ko: {
+      title: '개인정보처리방침 | Code Builder',
+      description: 'Code Builder 웹사이트의 개인정보처리방침입니다.',
+      keywords: 'Code Builder 개인정보처리방침, 개인정보 보호',
+    },
+    en: {
+      title: 'Privacy Policy | Code Builder',
+      description: 'The privacy policy for the Code Builder website.',
+      keywords: 'Code Builder privacy policy, data protection',
+    },
+  },
+  terms: {
+    path: 'terms.html',
+    ko: {
+      title: '이용약관 | Code Builder',
+      description: 'Code Builder 웹사이트의 이용약관입니다.',
+      keywords: 'Code Builder 이용약관',
+    },
+    en: {
+      title: 'Terms of Service | Code Builder',
+      description: 'The terms of service for the Code Builder website.',
+      keywords: 'Code Builder terms of service',
+    },
+  },
 };
 
 module.exports = { SITE_URL, SITE_NAME, OG_IMAGE, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT, PAGES };
