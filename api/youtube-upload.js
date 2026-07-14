@@ -28,8 +28,14 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'title and description are required' });
   }
   const status = privacyStatus === 'private' ? 'private' : 'public';
-  if (status === 'private' && publishAt && Number.isNaN(Date.parse(publishAt))) {
-    return res.status(400).json({ error: 'publishAt must be a valid ISO 8601 timestamp' });
+  if (status === 'private' && publishAt) {
+    const publishAtMs = Date.parse(publishAt);
+    if (Number.isNaN(publishAtMs)) {
+      return res.status(400).json({ error: 'publishAt must be a valid ISO 8601 timestamp' });
+    }
+    if (publishAtMs <= Date.now()) {
+      return res.status(400).json({ error: 'publishAt must be in the future' });
+    }
   }
 
   try {
@@ -72,6 +78,7 @@ module.exports = async function handler(req, res) {
       videoId: video.id,
       url: `https://youtube.com/watch?v=${video.id}`,
       privacyStatus: video.status && video.status.privacyStatus,
+      publishAt: video.status && video.status.publishAt,
       captionAttached,
       captionError,
     });

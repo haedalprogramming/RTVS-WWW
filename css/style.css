@@ -313,6 +313,7 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
 .platform-options label { display: flex; align-items: center; gap: 6px; font-weight: 400; color: var(--text); }
 .platform-options .is-disabled { opacity: .5; }
 #shortsResults { display: flex; flex-direction: column; gap: 8px; }
+.field-note { font-size: .8rem; color: var(--text-muted); margin-top: 4px; }
 
 /* ─── Legal (Privacy / Terms) ─── */
 .legal-body { max-width: 760px; }

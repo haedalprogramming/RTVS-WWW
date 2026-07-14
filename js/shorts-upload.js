@@ -3,6 +3,9 @@
 // share-video feature uses, api/upload-chunk.js — it's generic), then
 // publishes to each checked platform. Only YouTube is wired up so far
 // (TikTok's checkbox stays disabled until #40's app review is approved).
+// Supports "지금" / "비공개" / "예약" publish timing (#46 M8 — YouTube-side
+// only; scheduling for TikTok needs its own cron since the API has no
+// native publishAt equivalent).
 
 const MAX_VIDEO_BYTES = 2 * 1024 * 1024 * 1024; // 2GB
 
@@ -60,18 +63,64 @@ function youtubeResultDetail(result) {
   if (!result.ok) return `실패 — ${result.data.error || ''} ${result.data.detail || ''}`;
   const link = `<a href="${result.data.url}" target="_blank">${result.data.url}</a>`;
   if (result.data.captionError) return `${link} (자막 첨부 실패: ${result.data.captionError})`;
+  if (result.data.publishAt) {
+    const when = new Date(result.data.publishAt).toLocaleString('ko-KR');
+    return `${link} (${when}에 자동 공개 예약됨)`;
+  }
   return link;
 }
 
-async function publishToYoutube({ driveFileId, language, title, description, srtFile, privacyStatus }) {
+async function publishToYoutube({ driveFileId, language, title, description, srtFile, privacyStatus, publishAt }) {
   const srt = srtFile ? await readFileAsText(srtFile) : undefined;
   const res = await fetch('/api/youtube-upload', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ driveFileId, language, title, description, srt, privacyStatus }),
+    body: JSON.stringify({ driveFileId, language, title, description, srt, privacyStatus, publishAt }),
   });
   const data = await res.json().catch(() => ({}));
   return { ok: res.ok, data };
+}
+
+function initScheduleToggle() {
+  const datetimeGroup = document.getElementById('scheduleDatetimeGroup');
+  const datetimeInput = document.getElementById('schedule-datetime');
+
+  // Can't schedule into the past — floor the picker at "5 minutes from now".
+  const min = new Date(Date.now() + 5 * 60 * 1000);
+  min.setSeconds(0, 0);
+  datetimeInput.min = min.toISOString().slice(0, 16);
+
+  document.querySelectorAll('input[name="schedule-mode"]').forEach((radio) => {
+    radio.addEventListener('change', () => {
+      datetimeGroup.hidden = radio.value !== 'scheduled' || !radio.checked;
+    });
+  });
+}
+
+// Returns { privacyStatus, publishAt } for the currently selected schedule
+// mode, or throws if "예약 게시" is selected without a valid future time.
+function readScheduleChoice() {
+  const mode = document.querySelector('input[name="schedule-mode"]:checked').value;
+  if (mode === 'now') return { privacyStatus: 'public', publishAt: undefined };
+  if (mode === 'private') return { privacyStatus: 'private', publishAt: undefined };
+
+  const raw = document.getElementById('schedule-datetime').value;
+  if (!raw) throw new Error('예약 시각을 선택해주세요.');
+  const publishAt = new Date(raw);
+  if (Number.isNaN(publishAt.getTime()) || publishAt.getTime() <= Date.now()) {
+    throw new Error('예약 시각은 미래 시점이어야 합니다.');
+  }
+  return { privacyStatus: 'private', publishAt: publishAt.toISOString() };
+}
+
+const RELATED_VIDEO_LABEL = { ko: '전체 영상 보기', en: 'Watch the full video' };
+
+// YouTube's Data API has no dedicated "related video" field for Shorts —
+// the only reliable, API-accessible way to point viewers at a long-form
+// video is a plain link at the end of the description.
+function withRelatedVideoLink(description, relatedUrl, lang) {
+  if (!relatedUrl) return description;
+  return [description, `${RELATED_VIDEO_LABEL[lang]}: ${relatedUrl}`].filter(Boolean).join('\n\n');
 }
 
 function setStatus(message, type) {
@@ -97,12 +146,19 @@ async function handleShortsSubmit(e) {
   if (!titleKo || !descKo) return setStatus('한국어 제목과 설명은 필수입니다.', 'error');
 
   const hashtags = document.getElementById('hashtags').value.trim();
+  const relatedVideoUrl = document.getElementById('related-video-url').value.trim();
   const titleEn = document.getElementById('title-en').value.trim();
   const descEn = document.getElementById('desc-en').value.trim();
   const srtKoFile = document.getElementById('srt-ko').files[0];
   const srtEnFile = document.getElementById('srt-en').files[0];
   const youtubeEnabled = document.getElementById('platform-youtube').checked;
-  const privacyStatus = document.getElementById('privacy').value;
+
+  let schedule;
+  try {
+    schedule = readScheduleChoice();
+  } catch (err) {
+    return setStatus(err.message, 'error');
+  }
 
   const btn = e.target.querySelector('button[type="submit"]');
   const progressWrap = document.getElementById('uploadProgress');
@@ -131,24 +187,28 @@ async function handleShortsSubmit(e) {
     setStatus('영상 업로드 완료. 플랫폼별로 게시 중...', 'success');
 
     if (youtubeEnabled) {
+      const koDescription = withRelatedVideoLink([descKo, hashtags].filter(Boolean).join('\n\n'), relatedVideoUrl, 'ko');
       const koResult = await publishToYoutube({
         driveFileId,
         language: 'ko',
         title: titleKo,
-        description: [descKo, hashtags].filter(Boolean).join('\n\n'),
+        description: koDescription,
         srtFile: srtKoFile,
-        privacyStatus,
+        privacyStatus: schedule.privacyStatus,
+        publishAt: schedule.publishAt,
       });
       appendResult('YouTube (한국어)', koResult.ok, youtubeResultDetail(koResult));
 
       if (titleEn && descEn) {
+        const enDescription = withRelatedVideoLink([descEn, hashtags].filter(Boolean).join('\n\n'), relatedVideoUrl, 'en');
         const enResult = await publishToYoutube({
           driveFileId,
           language: 'en',
           title: titleEn,
-          description: [descEn, hashtags].filter(Boolean).join('\n\n'),
+          description: enDescription,
           srtFile: srtEnFile,
-          privacyStatus,
+          privacyStatus: schedule.privacyStatus,
+          publishAt: schedule.publishAt,
         });
         appendResult('YouTube (English)', enResult.ok, youtubeResultDetail(enResult));
       }
@@ -163,4 +223,7 @@ async function handleShortsSubmit(e) {
 }
 
 const shortsForm = document.getElementById('shortsForm');
-if (shortsForm) shortsForm.addEventListener('submit', handleShortsSubmit);
+if (shortsForm) {
+  shortsForm.addEventListener('submit', handleShortsSubmit);
+  initScheduleToggle();
+}
