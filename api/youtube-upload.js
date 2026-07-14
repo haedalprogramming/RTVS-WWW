@@ -51,9 +51,20 @@ module.exports = async function handler(req, res) {
     const download = await downloadFile(driveFileId);
     const video = await uploadVideoContent({ uploadUrl, body: download.body, size, mimeType });
 
-    let caption = null;
+    // The video already exists on the channel at this point — a caption
+    // failure must not be reported as if the whole upload failed (that
+    // previously caused a "failed" response to hide an already-published
+    // video, discovered while testing this endpoint).
+    let captionAttached = false;
+    let captionError = null;
     if (srt && typeof srt === 'string') {
-      caption = await attachCaption({ videoId: video.id, language, srtContent: srt });
+      try {
+        await attachCaption({ videoId: video.id, language, srtContent: srt });
+        captionAttached = true;
+      } catch (err) {
+        console.error('Caption attach failed (video upload still succeeded)', err);
+        captionError = String(err.message || err);
+      }
     }
 
     return res.status(200).json({
@@ -61,7 +72,8 @@ module.exports = async function handler(req, res) {
       videoId: video.id,
       url: `https://youtube.com/watch?v=${video.id}`,
       privacyStatus: video.status && video.status.privacyStatus,
-      captionAttached: Boolean(caption),
+      captionAttached,
+      captionError,
     });
   } catch (err) {
     console.error('YouTube upload failed', err);
