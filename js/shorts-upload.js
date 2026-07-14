@@ -113,16 +113,6 @@ function readScheduleChoice() {
   return { privacyStatus: 'private', publishAt: publishAt.toISOString() };
 }
 
-const RELATED_VIDEO_LABEL = { ko: '전체 영상 보기', en: 'Watch the full video' };
-
-// YouTube's Data API has no dedicated "related video" field for Shorts —
-// the only reliable, API-accessible way to point viewers at a long-form
-// video is a plain link at the end of the description.
-function withRelatedVideoLink(description, relatedUrl, lang) {
-  if (!relatedUrl) return description;
-  return [description, `${RELATED_VIDEO_LABEL[lang]}: ${relatedUrl}`].filter(Boolean).join('\n\n');
-}
-
 function setStatus(message, type) {
   const status = document.getElementById('shortsStatus');
   status.textContent = message;
@@ -146,7 +136,6 @@ async function handleShortsSubmit(e) {
   if (!titleKo || !descKo) return setStatus('한국어 제목과 설명은 필수입니다.', 'error');
 
   const hashtags = document.getElementById('hashtags').value.trim();
-  const relatedVideoUrl = document.getElementById('related-video-url').value.trim();
   const titleEn = document.getElementById('title-en').value.trim();
   const descEn = document.getElementById('desc-en').value.trim();
   const srtKoFile = document.getElementById('srt-ko').files[0];
@@ -187,12 +176,11 @@ async function handleShortsSubmit(e) {
     setStatus('영상 업로드 완료. 플랫폼별로 게시 중...', 'success');
 
     if (youtubeEnabled) {
-      const koDescription = withRelatedVideoLink([descKo, hashtags].filter(Boolean).join('\n\n'), relatedVideoUrl, 'ko');
       const koResult = await publishToYoutube({
         driveFileId,
         language: 'ko',
         title: titleKo,
-        description: koDescription,
+        description: [descKo, hashtags].filter(Boolean).join('\n\n'),
         srtFile: srtKoFile,
         privacyStatus: schedule.privacyStatus,
         publishAt: schedule.publishAt,
@@ -200,12 +188,11 @@ async function handleShortsSubmit(e) {
       appendResult('YouTube (한국어)', koResult.ok, youtubeResultDetail(koResult));
 
       if (titleEn && descEn) {
-        const enDescription = withRelatedVideoLink([descEn, hashtags].filter(Boolean).join('\n\n'), relatedVideoUrl, 'en');
         const enResult = await publishToYoutube({
           driveFileId,
           language: 'en',
           title: titleEn,
-          description: enDescription,
+          description: [descEn, hashtags].filter(Boolean).join('\n\n'),
           srtFile: srtEnFile,
           privacyStatus: schedule.privacyStatus,
           publishAt: schedule.publishAt,
