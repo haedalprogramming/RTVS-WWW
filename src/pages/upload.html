@@ -32,14 +32,80 @@
       <div id="authStatus" class="form-status" hidden></div>
     </form>
 
-    <div id="authedView" hidden>
-      <p>인증 완료. 업로드 폼은 준비 중입니다.</p>
-    </div>
+  </div>
+</section>
 
+<!-- ───────── UPLOAD FORM (shown after auth) ───────── -->
+<section class="section" id="authedView" hidden>
+  <div class="container contact-layout">
+    <form class="contact-form" id="shortsForm">
+
+      <div class="form-group">
+        <label for="video">원본 영상 파일 <span class="required">*</span></label>
+        <input type="file" id="video" name="video" accept="video/*" required />
+      </div>
+
+      <div class="form-group">
+        <label>게시할 플랫폼</label>
+        <div class="platform-options">
+          <label><input type="checkbox" id="platform-youtube" checked /> YouTube</label>
+          <label class="is-disabled"><input type="checkbox" id="platform-tiktok" disabled /> TikTok (앱 심사 대기 중)</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="privacy">공개 상태</label>
+        <select id="privacy">
+          <option value="public" selected>공개</option>
+          <option value="private">비공개 (테스트용)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="hashtags">해시태그</label>
+        <textarea id="hashtags" rows="2">#로블록스 #roblox #코드빌더 #로블록스코드빌더 #codebuilder #robloxcodebuilder</textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="title-ko">한국어 제목 <span class="required">*</span></label>
+        <input type="text" id="title-ko" required />
+      </div>
+      <div class="form-group">
+        <label for="desc-ko">한국어 설명 <span class="required">*</span></label>
+        <textarea id="desc-ko" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="srt-ko">한국어 자막 (.srt, 선택 — YouTube 캡션 트랙용)</label>
+        <input type="file" id="srt-ko" accept=".srt" />
+      </div>
+
+      <div class="form-group">
+        <label for="title-en">영어 제목 (선택 — 비우면 영어 버전은 건너뜀)</label>
+        <input type="text" id="title-en" />
+      </div>
+      <div class="form-group">
+        <label for="desc-en">영어 설명</label>
+        <textarea id="desc-en" rows="4"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="srt-en">영어 자막 (.srt, 선택)</label>
+        <input type="file" id="srt-en" accept=".srt" />
+      </div>
+
+      <div class="upload-progress" id="uploadProgress" hidden>
+        <div class="upload-progress-track"><div class="upload-progress-fill" id="uploadProgressFill"></div></div>
+        <span class="upload-progress-label" id="uploadProgressLabel">0%</span>
+      </div>
+
+      <button type="submit" class="btn-primary btn-full">게시</button>
+      <div id="shortsStatus" class="form-status" hidden></div>
+      <div id="shortsResults"></div>
+    </form>
   </div>
 </section>
 
 <!--#include:footer-->
 <script src="js/upload-auth.js"></script>
+<script src="js/shorts-upload.js"></script>
 </body>
 </html>
