@@ -56,6 +56,13 @@ function appendResult(label, ok, detailHtml) {
   results.appendChild(row);
 }
 
+function youtubeResultDetail(result) {
+  if (!result.ok) return `실패 — ${result.data.error || ''} ${result.data.detail || ''}`;
+  const link = `<a href="${result.data.url}" target="_blank">${result.data.url}</a>`;
+  if (result.data.captionError) return `${link} (자막 첨부 실패: ${result.data.captionError})`;
+  return link;
+}
+
 async function publishToYoutube({ driveFileId, language, title, description, srtFile, privacyStatus }) {
   const srt = srtFile ? await readFileAsText(srtFile) : undefined;
   const res = await fetch('/api/youtube-upload', {
@@ -132,13 +139,7 @@ async function handleShortsSubmit(e) {
         srtFile: srtKoFile,
         privacyStatus,
       });
-      appendResult(
-        'YouTube (한국어)',
-        koResult.ok,
-        koResult.ok
-          ? `<a href="${koResult.data.url}" target="_blank">${koResult.data.url}</a>`
-          : `실패 — ${koResult.data.error || ''} ${koResult.data.detail || ''}`
-      );
+      appendResult('YouTube (한국어)', koResult.ok, youtubeResultDetail(koResult));
 
       if (titleEn && descEn) {
         const enResult = await publishToYoutube({
@@ -149,13 +150,7 @@ async function handleShortsSubmit(e) {
           srtFile: srtEnFile,
           privacyStatus,
         });
-        appendResult(
-          'YouTube (English)',
-          enResult.ok,
-          enResult.ok
-            ? `<a href="${enResult.data.url}" target="_blank">${enResult.data.url}</a>`
-            : `실패 — ${enResult.data.error || ''} ${enResult.data.detail || ''}`
-        );
+        appendResult('YouTube (English)', enResult.ok, youtubeResultDetail(enResult));
       }
     }
 
