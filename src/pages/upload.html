@@ -54,16 +54,28 @@
       </div>
 
       <div class="form-group">
-        <label for="privacy">공개 상태</label>
-        <select id="privacy">
-          <option value="public" selected>공개</option>
-          <option value="private">비공개 (테스트용)</option>
-        </select>
+        <label>게시 시점</label>
+        <div class="platform-options">
+          <label><input type="radio" name="schedule-mode" value="now" checked /> 지금 공개로 게시</label>
+          <label><input type="radio" name="schedule-mode" value="private" /> 지금 업로드, 비공개로 (수동 확인용)</label>
+          <label><input type="radio" name="schedule-mode" value="scheduled" /> 예약 게시</label>
+        </div>
+      </div>
+      <div class="form-group" id="scheduleDatetimeGroup" hidden>
+        <label for="schedule-datetime">공개 예약 시각</label>
+        <input type="datetime-local" id="schedule-datetime" />
+        <p class="field-note">지정한 시각에 YouTube가 자동으로 비공개→공개로 전환합니다. 업로드 자체는 지금 바로 진행됩니다.</p>
       </div>
 
       <div class="form-group">
         <label for="hashtags">해시태그</label>
         <textarea id="hashtags" rows="2">#로블록스 #roblox #코드빌더 #로블록스코드빌더 #codebuilder #robloxcodebuilder</textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="related-video-url">관련 롱폼 영상 URL (선택)</label>
+        <input type="url" id="related-video-url" placeholder="https://www.youtube.com/watch?v=..." />
+        <p class="field-note">YouTube API엔 별도의 "관련 영상" 필드가 없어서, 설명란 맨 아래에 링크 한 줄을 자동으로 추가하는 방식으로 동작합니다.</p>
       </div>
 
       <div class="form-group">
