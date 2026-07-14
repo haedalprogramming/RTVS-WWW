@@ -11,16 +11,8 @@
 
 <!--#include:nav-->
 
-<!-- ───────── PAGE HERO ───────── -->
-<section class="page-hero">
-  <div class="container">
-    <div class="section-label">Internal</div>
-    <h1>쇼츠 업로드</h1>
-  </div>
-</section>
-
-<!-- ───────── AUTH GATE ───────── -->
-<section class="section">
+<!-- ───────── AUTH GATE (shown before login — no page title, nothing to hint at) ───────── -->
+<section class="section" id="guestView">
   <div class="container auth-card">
 
     <form class="contact-form" id="authForm">
@@ -32,6 +24,14 @@
       <div id="authStatus" class="form-status" hidden></div>
     </form>
 
+  </div>
+</section>
+
+<!-- ───────── PAGE HERO (shown only after auth) ───────── -->
+<section class="page-hero" id="authedHero" hidden>
+  <div class="container">
+    <div class="section-label">Internal</div>
+    <h1>쇼츠 업로드</h1>
   </div>
 </section>
 

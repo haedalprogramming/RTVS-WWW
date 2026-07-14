@@ -115,6 +115,23 @@ async function createResumableSession({ name, description, mimeType, size, paren
   return location;
 }
 
+// Lists the immediate children of a folder — used by the temporary
+// api/shorts-drive-debug.js endpoint to check where uploads actually land.
+async function listChildren(folderId) {
+  const accessToken = await getAccessToken();
+  const fields = encodeURIComponent('files(id,name,mimeType,createdTime,webViewLink)');
+  const q = encodeURIComponent(`'${folderId}' in parents and trashed=false`);
+  const res = await fetch(
+    `${DRIVE_FILES_URL}?q=${q}&fields=${fields}&supportsAllDrives=true&includeItemsFromAllDrives=true&orderBy=createdTime desc`,
+    { headers: { Authorization: `Bearer ${accessToken}` } }
+  );
+  if (!res.ok) {
+    throw new Error(`Drive list error ${res.status}: ${await res.text()}`);
+  }
+  const data = await res.json();
+  return data.files || [];
+}
+
 async function getFile(fileId) {
   const accessToken = await getAccessToken();
   const fields = encodeURIComponent('id,name,size,mimeType,webViewLink,parents');
@@ -141,4 +158,4 @@ async function downloadFile(fileId) {
   return res;
 }
 
-module.exports = { getAccessToken, createSubmissionFolder, createResumableSession, getFile, downloadFile };
+module.exports = { getAccessToken, createSubmissionFolder, createResumableSession, getFile, downloadFile, listChildren };

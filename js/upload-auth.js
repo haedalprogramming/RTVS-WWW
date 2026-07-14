@@ -1,7 +1,8 @@
 // ─── Shorts Upload Page — Password Gate ─────────────────────
-// Checks/sets the upload_session cookie via /api/upload-auth. The actual
-// upload form (post-auth) is built separately; this only swaps in a
-// placeholder once the password is accepted.
+// Checks/sets the upload_session cookie via /api/upload-auth. Before login,
+// only the bare password prompt shows (no page title/hero — nothing hints
+// at what this page is for). After login, that prompt disappears entirely
+// and the real page title + upload form take over.
 
 async function checkUploadSession() {
   const res = await fetch('/api/upload-auth');
@@ -10,7 +11,8 @@ async function checkUploadSession() {
 }
 
 function showAuthedView() {
-  document.getElementById('authForm').hidden = true;
+  document.getElementById('guestView').hidden = true;
+  document.getElementById('authedHero').hidden = false;
   document.getElementById('authedView').hidden = false;
 }
 
