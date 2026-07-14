@@ -309,6 +309,10 @@ kbd { display: inline-block; padding: 2px 8px; background: var(--bg3); border: 1
 
 /* ─── Internal Upload Tool ─── */
 .auth-card { max-width: 360px; }
+.platform-options { display: flex; gap: 20px; flex-wrap: wrap; }
+.platform-options label { display: flex; align-items: center; gap: 6px; font-weight: 400; color: var(--text); }
+.platform-options .is-disabled { opacity: .5; }
+#shortsResults { display: flex; flex-direction: column; gap: 8px; }
 
 /* ─── Legal (Privacy / Terms) ─── */
 .legal-body { max-width: 760px; }
