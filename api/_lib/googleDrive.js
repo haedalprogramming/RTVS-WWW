@@ -127,4 +127,18 @@ async function getFile(fileId) {
   return res.json();
 }
 
-module.exports = { getAccessToken, createSubmissionFolder, createResumableSession, getFile };
+// Downloads a file's raw bytes. Returns the fetch Response so callers can
+// stream `.body` straight into another upload (e.g. YouTube/TikTok) instead
+// of buffering the whole video in memory.
+async function downloadFile(fileId) {
+  const accessToken = await getAccessToken();
+  const res = await fetch(`${DRIVE_FILES_URL}/${encodeURIComponent(fileId)}?alt=media&supportsAllDrives=true`, {
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+  if (!res.ok) {
+    throw new Error(`Drive file download error ${res.status}: ${await res.text()}`);
+  }
+  return res;
+}
+
+module.exports = { getAccessToken, createSubmissionFolder, createResumableSession, getFile, downloadFile };
